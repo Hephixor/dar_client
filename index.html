@@ -208,24 +208,33 @@
 </div><!-- /.container -->
 </section><!-- /#about -->
 
-<!-- Subscribe Section -->
-<section id="subscribe-section" class="subscribe-section text-center">
-  <div class="container">
-    <form class="news-letter" method="post" action="./php/addNewsletterSubscriber.php">
-      <p class="alert-success"></p>
-      <p class="alert-warning"></p>
+<label for="text_id">texte à envoyer</label>
+	<input type="text" id="text_id" />
 
-      <div class="subscribe-hide">
-        <h4 class="sub-title" style="color:#f6f6f6;margin-top: -10px;padding-bottom: 10px">S'inscrire à la newsletter</h3>
-          <input class="form-control" type="email" id="subscribe-email" name="subscribe-email" placeholder="Adresse Email"  required>
-          <button  type="submit" id="subscribe-submit" class="btn btn-md">S'inscrire</button>
-          <div class="subscribe-error"></div>
-        </div><!-- /.subscribe-hide -->
-        <div class="subscribe-message"></div>
-      </form><!-- /.news-letter -->
-    </div><!-- /.container -->
-  </section><!-- /#subscribe-section -->
-  <!-- Subscribe Section End --> 
+	<input type="button" value="GO" onclick="go()" />
+
+	<p id="resp_id">z</p>
+
+	<script>
+		function go() {
+			var xhttp = new XMLHttpRequest();
+			
+			/*sur reception de la reponse*/ 
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4) {
+					document.getElementById("resp_id").innerHTML = this.responseText;
+				}
+			};
+			
+			/*texte a envoyer*/
+			var text = document.getElementById("text_id").value;
+			console.log("texte:"+text);
+			
+			/*envoi asynchrone au servlet*/
+			xhttp.open("GET", "../server/test?text="+text, true);
+			xhttp.send();
+		}
+	</script>
 
 
 
@@ -379,7 +388,7 @@
   <div id="footer-bottom" class="footer-bottom text-center">
     <div class="container" style="padding-top:10px">
       <div id="copyright" class="copyright">
-        &copy; <a href="http://beta-trip-hop.net">Trip-Hop.net</a>  2017 - Developed by <a href="http://google.com">William Sergeant</a>
+        &copy; <a href="http://beta-trip-hop.net">DAR project</a>  2018 - Developed by <a href="http://google.com">William Sergeant & Vicent Havinh</a>
       </div><!-- /#copyright -->
     </div>
   </div><!-- /#footer-bottom -->
