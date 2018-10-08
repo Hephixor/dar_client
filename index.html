@@ -1,35 +1,492 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Test WebContent</title>
-<meta charset="UTF-8">
-</head>
-<body>
-	<label for="text_id">texte à envoyer</label>
-	<input type="text" id="text_id" />
 
-	<input type="button" value="GO" onclick="go()" />
+  <!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Trip-Hop.net</title>
 
-	<p id="resp_id">z</p>
+  <meta name="description" content="Trip-Hop.net" >
+  <meta name="keywords" content="trip,hop,net,triphop,triphopnet,trip-hop,portishead,morcheeba,alpha,hooverphonic,album,mp3,lyrics,paroles,musique,massive attack,concert,concerts,morcheeba,triphop,paroles,magazine,webzine,angers,gratuit,pages,page,electrotrip,electro,trip,electro-trip,cd,cds,dossier,labels,extraits,audio,titres,pochettes,images,photos,fichiers,fichier,real,concours,gagner,disques,vinyle,pochette" />
+  <meta name="author" content="Trip-Hop.net">
 
-	<script>
-		function go() {
-			var xhttp = new XMLHttpRequest();
-			
-			/*sur reception de la reponse*/ 
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4) {
-					document.getElementById("resp_id").innerHTML = this.responseText;
-				}
-			};
-			
-			/*texte a envoyer*/
-			var text = document.getElementById("text_id").value;
-			console.log("texte:"+text);
-			
-			/*envoi asynchrone au servlet*/
-			xhttp.open("GET", "../server/test?text="+text, true);
-			xhttp.send();
-		}
-	</script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+  <!-- Bootstrap  -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- icon fonts font Awesome -->
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Import Magnific Pop Up Styles -->
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+
+  <!-- Import Custom Styles -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Import Animate Styles -->
+  <link href="assets/css/animate.min.css" rel="stylesheet">
+
+  <!-- Import owl.carousel Styles -->
+  <link href="assets/css/owl.carousel.css" rel="stylesheet">
+
+  <!-- Import Custom Responsive Styles -->
+  <link href="assets/css/responsive.css" rel="stylesheet">
+  <link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="assets/css/loader.css">
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+  <script src="js/main.js"></script>
+
+  
+  <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+    </head>
+    
+    <body class="header-fixed-top">
+
+      <div id="loader-wrapper">
+    <!-- <img src="images/logo2.jpg" alt="Site Logo"> -->
+        <div id="loader"></div>
+        <div class="loader-section section-left"><!-- <img src="images/logo2.jpg" alt="Site Logo"> --></div>      
+        <div class="loader-section section-right"></div>
+      </div>
+
+
+      <!-- scripts -->
+
+
+      <div id="page-top" class="page-top"></div><!-- /.page-top -->
+      <section id="site-banner" class="site-banner text-center">
+
+        <div class="container">
+          <div id="particles-js"></div>
+          <script src="js/particles.js"></script>
+          <script src="js/app.js"></script>
+          <div class="site-logo">
+
+            <!--  <a href="./"><img src="images/logo2.jpg" alt="Site Logo"></a>  -->
+          </div><!-- /.site-logo -->
+        </div><!-- /.container -->
+      </section><!-- /#site-banner -->
+      <header id="main-menu" class="main-menu">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-7" style="padding-top:5px;">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+                  <i class="fa fa-bars"></i>
+                </button>
+                <div class="menu-logo">
+                  <a href="./"><img src="images/logo_jp.png" alt="menu Logo"></a>
+                </div><!-- /.menu-logo -->
+              </div>
+              <nav id="menu" class="menu collapse navbar-collapse">
+               <ul id="headernavigation" class="menu-list nav navbar-nav">
+                <!-- <li> <span class="square">
+                  <a class="tenth before after" href="#">Cool Square Simultaneous</a>
+                </span>
+              </li> -->
+                <li class="square"><a href="./index.php" class="not-in-home tenth before after">Accueil</a></li>
+                <li class="square"><a href="./chroniques.php" class="not-in-home tenth before after ">Chroniques</a></li>
+                <li class="square"><a href="./news.php" class="not-in-home tenth before after">News</a></li>   
+                <!-- <li><a href="#services">Contribuer</a></li> -->
+                
+                <li ><a>Plus &darr;</a>
+                  <div class="dropdown-content"><center>
+                    <a href="artistes.php" class="not-in-home">Artistes</a><br/>
+                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
+                    <a href="albums.php" class="not-in-home">Albums</a><br/>
+                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
+                    <a href="labels.php" class="not-in-home">Labels</a><br/>
+                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
+                    <a href="#latest-post">Interviews</a>
+                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
+                    <a href="#latest-post">Vidéos</a>
+                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
+                    <a href="#latest-post">MP3s</a>
+                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
+                    <a href="#latest-post">Concours</a>
+                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
+                    <a href="#latest-post">Newsletter</a>
+                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
+                    <a class="not-in-home" href="http://127.0.0.1/triphopnet/v2/forum/index.php">Forum</a>
+                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
+                  
+
+
+
+                  </center>
+                </div></li>
+                
+              
+
+           </ul><!-- /.menu-list -->
+         </nav><!-- /.menu-list -->
+       </div>
+
+       <div class="col-sm-5" style="padding-top 10px;">
+        <div class="menu-search pull-right" style="margin-top: -5px;">
+         <form role="search" class="search-form" action="searchResults.php" method="get">
+          <input class="search-field" type="text" name="s" id="s" placeholder="Rechercher" required>
+          <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
+        </form><!-- /.search-form -->
+      </div><!-- /.menu-search -->
+    </div>
+  </div><!-- /.row -->
+</div><!-- /.container -->
+  </header><!-- /#main-menu -->
+
+<section id="about" class="about">
+ <div class="container">
+  <div class="about-area">
+   <div class="title-area text-center">
+    <h2 class="about-title">DAR Project - Le juste prix</h2>
+    <p class="title-description">Version 0.2.0</p>
+  </div><!-- /.title-area -->
+  <div class="about-items">
+    <div class="col-sm-4">
+     <div class="item">
+      <div class="item-top">
+       <h3 class="item-title">UN joueur</h3>
+       <h4 class="sub-title">Mode solo</h4>
+     </div><!-- /.item-top -->
+     <p class="item-description">
+     Pour s'amuser comme un petit fou </p><br/><br/>
+          <a href="#popup-article" class="card__link btn">
+       <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
+       Jouer
+     </a>
+
+
+<!-- <a href="#popup-article4" class="card__link btn">
+       <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
+      Nous contacter  
+    </a> -->
+  </div><!-- /.item -->
+</div>
+<div class="col-sm-4">
+ <div class="item">
+  <div class="item-top">
+   <h3 class="item-title">Multijoueur</h3>
+   <h4 class="sub-title">Pour jouer à plusieurs</h4>
+ </div><!-- /.item-top -->
+ <p class="item-description">
+   Comme ça on s'amuse tous ensemble
+ </p><br/><br/>
+ <a href="#popup-article1" class="card__link btn">
+   <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
+   Multijouer
+ </a>
+</div><!-- /.item -->
+</div>
+<div class="col-sm-4">
+ <div class="item">
+  <div class="item-top">
+   <h3 class="item-title">Leaderboard</h3>
+   <h4 class="sub-title">Tableau des scores</h4>
+ </div><!-- /.item-top -->
+ <p class="item-description">
+  Savoir si tu est un nul ou un bon.
+ </p><br/><br/>
+ <a href="#popup-article2" class="card__link btn">
+   <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
+   Suis-je nul?!
+ </a>
+</div><!-- /.item -->
+</div>
+</div><!-- /.about-items -->
+</div><!-- /.about-area -->
+</div><!-- /.container -->
+</section><!-- /#about -->
+
+<!-- Subscribe Section -->
+<section id="subscribe-section" class="subscribe-section text-center">
+  <div class="container">
+    <form class="news-letter" method="post" action="./php/addNewsletterSubscriber.php">
+      <p class="alert-success"></p>
+      <p class="alert-warning"></p>
+
+      <div class="subscribe-hide">
+        <h4 class="sub-title" style="color:#f6f6f6;margin-top: -10px;padding-bottom: 10px">S'inscrire à la newsletter</h3>
+          <input class="form-control" type="email" id="subscribe-email" name="subscribe-email" placeholder="Adresse Email"  required>
+          <button  type="submit" id="subscribe-submit" class="btn btn-md">S'inscrire</button>
+          <div class="subscribe-error"></div>
+        </div><!-- /.subscribe-hide -->
+        <div class="subscribe-message"></div>
+      </form><!-- /.news-letter -->
+    </div><!-- /.container -->
+  </section><!-- /#subscribe-section -->
+  <!-- Subscribe Section End --> 
+
+
+
+<!-- <section id="contact" class="contact">
+  <div class="contact-area">
+    <div id="message-details" class="message-details">
+    <center><h4 class="sub-title" style="color:#888;margin-top: -30px;padding-bottom: 10px">Nous contacter</h4></center>
+      <div class="container">
+
+        <form action="email.php" method="post" id="myForm" class="message-form">
+          <div class="row">
+            <div class="col-sm-6">
+              <input id="first_name" class="form-control" name="first_name" type="text" value="" size="30" aria-required="true" placeholder="Nom*" title="first_name" required>
+              <input id="contact_email" class="form-control" name="contact_email" type="email" value="" size="30" aria-required="true" placeholder="Email*" title="contact_email"  required>
+              <input id="subject" class="form-control" name="subject" type="subject" value="" size="30" aria-required="true" placeholder="Objet*" title="Subject"  required>
+            </div>
+            <div class="col-sm-6">
+              <textarea id="message" class="form-control" name="message" cols="45" rows="3" aria-required="true" placeholder="Message" title="Message"  required></textarea>
+              <button name="submit" class="btn btn-lg full-width" type="submit" id="submit">Envoyer</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<div id="popup-article4" class="popup">
+  <div class="popup__block">
+    <h1 class="popup__title">Nous contacter</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eaque optio vitae in explicabo recusandae sit id sapiente excepturi tempore, nemo, nulla odio deleniti rerum nisi perferendis aut molestias! Incidunt nesciunt iusto praesentium! In at maiores quibusdam enim quis, quam!</p>
+    <img src="./images/logo_tr.jpg" class="popup__media popup__media_right" alt="The foto of nature">
+    <section id="contact" class="contact">
+      <div class="contact-area">
+        <div id="message-details" class="message-details">
+          <center><h4 class="sub-title" style="color:#888;margin-top: -30px;padding-bottom: 10px">Nous contacter</h4></center>
+          <div class="container">
+
+            <form action="email.php" method="post" id="myForm" class="message-form">
+              <div class="row">
+                <div class="col-sm-6">
+                  <input id="first_name" class="form-control" name="first_name" type="text" value="" size="30" aria-required="true" placeholder="Nom*" title="first_name" required>
+                  <input id="contact_email" class="form-control" name="contact_email" type="email" value="" size="30" aria-required="true" placeholder="Email*" title="contact_email"  required>
+                  <input id="subject" class="form-control" name="subject" type="subject" value="" size="30" aria-required="true" placeholder="Objet*" title="Subject"  required>
+                </div>
+                <div class="col-sm-6">
+                  <textarea id="message" class="form-control" name="message" cols="45" rows="3" aria-required="true" placeholder="Message" title="Message"  required></textarea>
+                  <button name="submit" class="btn btn-lg full-width" type="submit" id="submit">Envoyer</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <a href="#" class="popup__close">close</a>
+  </div>
+</div>
+<div id="popup-article1" class="popup">
+  <div class="popup__block">
+    <h1 class="popup__title">Recherche Améliorée</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eaque optio vitae in explicabo recusandae sit id sapiente excepturi tempore, nemo, nulla odio deleniti rerum nisi perferendis aut molestias! Incidunt nesciunt iusto praesentium! In at maiores quibusdam enim quis, quam!</p>
+    <img src="./images/logo_tr.jpg" class="popup__media popup__media_right" alt="The foto of nature">
+    <p>Architecto magni dolores cumque tenetur nemo id aperiam, ratione temporibus at, consectetur totam, fuga et illo rerum earum dicta. Vitae ullam harum enim aliquid hic commodi voluptas cumque iste ex accusantium architecto doloremque reprehenderit, asperiores vero dolor, esse inventore dolorem.</p>
+    <p>Excepturi eaque, reprehenderit dolores, cum molestias repellendus in expedita. Placeat totam, quos pariatur quidem explicabo id harum ab voluptatum. Necessitatibus, aliquam! Dolorum voluptatem ut laudantium excepturi cumque, hic iure impedit ullam accusantium error natus recusandae, quia fuga quo voluptates officiis?</p>    
+    <a href="#" class="popup__close">close</a>
+  </div>
+</div>
+<div id="popup-article2" class="popup">
+  <div class="popup__block">
+    <h1 class="popup__title">Équipe plus grande</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eaque optio vitae in explicabo recusandae sit id sapiente excepturi tempore, nemo, nulla odio deleniti rerum nisi perferendis aut molestias! Incidunt nesciunt iusto praesentium! In at maiores quibusdam enim quis, quam!</p>
+    <img src="./images/logo_tr.jpg" class="popup__media popup__media_right" alt="The foto of nature">
+    <p>Architecto magni dolores cumque tenetur nemo id aperiam, ratione temporibus at, consectetur totam, fuga et illo rerum earum dicta. Vitae ullam harum enim aliquid hic commodi voluptas cumque iste ex accusantium architecto doloremque reprehenderit, asperiores vero dolor, esse inventore dolorem.</p>
+    <p>Excepturi eaque, reprehenderit dolores, cum molestias repellendus in expedita. Placeat totam, quos pariatur quidem explicabo id harum ab voluptatum. Necessitatibus, aliquam! Dolorum voluptatem ut laudantium excepturi cumque, hic iure impedit ullam accusantium error natus recusandae, quia fuga quo voluptates officiis?</p>    
+    <a href="#" class="popup__close">close</a>
+  </div>
+</div>
+
+<div id="popup-article" class="popup">
+  <div class="popup__block">
+    <h1 class="popup__title">Nous contacter</h1>
+    <img src="./images/logo_tr.jpg" class="popup__media popup__media_right" alt="The foto of nature">
+
+
+    <center><div id="message-details" class="message-details" style="margin-left:-100px;width:100%">
+      <div class="container">
+        <form action="email.php" method="post" id="myForm" class="message-form">
+          <div class="row">
+            <div class="col-sm-6">
+              <input id="first_name" class="form-control" name="first_name" type="text" value="" size="30" aria-required="true" placeholder="Nom*" title="first_name" required>
+              <input id="contact_email" class="form-control" name="contact_email" type="email" value="" size="30" aria-required="true" placeholder="Email*" title="contact_email"  required>
+              <input id="subject" class="form-control" name="subject" type="subject" value="" size="30" aria-required="true" placeholder="Objet*" title="Subject"  required>
+            </div>
+            <div class="col-sm-6">
+              <textarea id="message" class="form-control" name="message" cols="45" rows="3" aria-required="true" placeholder="Message" title="Message"  required></textarea>
+              <button name="submit" class="btn btn-lg full-width" type="submit" id="submit">Envoyer</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </center>
+
+  <a href="#" class="popup__close">close</a>
+</div>
+</div>
+
+<!-- <a href="#popup-article" class="card__link btn">
+ <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
+ Nous contacter  
+</a> -->
+
+</main>
+<br/>
+<footer class="footer">
+  <!--  <div id="footer-top" class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div id="tweet" class="tweet text-left">
+          <div class="col-xs-4 about-tweet">
+            <span class="tweet-icon"><i class="fa fa-twitter"></i></span>
+            <span class="tweet-author">John Doe</span>
+            <p class="tweet-details">
+              Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis eupulvinar nuncint
+            </p>
+            <time datetime="PT2H">2 Hours Ago</time>
+          </div>
+          <div class="col-xs-4 about-tweet">
+            <span class="tweet-icon"><i class="fa fa-twitter"></i></span>
+            <span class="tweet-author">John Doe</span>
+            <p class="tweet-details">
+              Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis eupulvinar nuncint
+            </p>
+            <time datetime="PT2H">2 Hours Ago</time>
+          </div>
+          <div class="col-xs-4 about-tweet">
+            <span class="tweet-icon"><i class="fa fa-twitter"></i></span>
+            <span class="tweet-author">John Doe</span>
+            <p class="tweet-details">
+              Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis eupulvinar nuncint
+            </p>
+            <time datetime="PT2H">2 Hours Ago</time>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ -->
+  <div id="footer-bottom" class="footer-bottom text-center">
+    <div class="container" style="padding-top:10px">
+      <div id="copyright" class="copyright">
+        &copy; <a href="http://beta-trip-hop.net">Trip-Hop.net</a>  2017 - Developed by <a href="http://google.com">William Sergeant</a>
+      </div><!-- /#copyright -->
+    </div>
+  </div><!-- /#footer-bottom -->
+</footer>
+
+
+</div>
 </body>
+<div id="scroll-to-top" class="scroll-to-top">
+  <span>
+    <i class="fa fa-chevron-up" style="top:50%"></i>    
+  </span>
+</div><!-- /#scroll-to-top -->
+
+
+
+<!-- Include modernizr-2.8.3.min.js -->
+<script src="assets/js/modernizr-2.8.3.min.js"></script>
+
+<!-- Include jquery.min.js plugin -->
+<script src="assets/js/jquery-2.1.0.min.js"></script>
+
+<!-- Include magnific-popup.min.js -->
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+<!-- Google Maps Script -->
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+<!-- Gmap3.js For Static Maps -->
+<script src="assets/js/gmap3.js"></script>
+
+<!-- Javascript Plugins  -->
+<script src="assets/js/plugins.js"></script>
+
+<!-- Custom Functions  -->
+<script src="assets/js/functions.js"></script>
+
+<script src="assets/js/wow.min.js"></script>
+
+<script type="text/javascript" src="assets/js/jquery.ajaxchimp.min.js"></script>
+
+
+
+
+<script>
+
+ $(document).ready(function() {
+
+  /* -------- One page Navigation ----------*/
+  $('#main-menu #menu').onePageNav({
+    currentClass: 'active',
+    changeHash: false,
+    scrollSpeed: 1500,
+    scrollThreshold: 0.5,
+    scrollOffset: 95,
+    filter: ':not(.sub-menu a, .not-in-home)',
+    easing: 'swing'
+  }); 
+}
+
+  /*----------- Google Map - with support of gmaps.js ----------------*/
+
+/*  function isMobile() { 
+   return ('ontouchstart' in document.documentElement);
+ }
+*/
+/* function init_gmap() {
+   if ( typeof google == 'undefined' ) return;
+   var options = {
+    center: [-37.817331, 144.955652],
+    zoom: 15,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+     style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+   },
+   navigationControl: true,
+   scrollwheel: false,
+   streetViewControl: true
+ }
+
+ if (isMobile()) {
+  options.draggable = true;
+}
+
+$('#googleMaps').gmap3({
+  map: {
+   options: options
+ },
+ marker: {
+   latLng: [-37.817331, 144.955652],
+   options: { icon: 'images/mapicon.png' }
+ }
+});
+}
+
+init_gmap();
+});*/
+
+/*$(document).bind("contextmenu",function()
+{return false;}); */
+)
+</script>
+  <!-- JS -->
+ <!-- <script type="text/javascript" src="./js/jquery.min.js"></script>--><!-- jQuery -->
+ <!--  <script type="text/javascript" src="./js/scripts.js"></script> --><!-- Scripts -->
+
+
+
 </html>
+
