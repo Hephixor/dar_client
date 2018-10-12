@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -130,149 +131,111 @@
 </div><!-- /.container -->
 </header><!-- /#main-menu -->
 
-<section id="about" class="about">
+<section class="about">
  <div class="container">
-  <div class="about-area">
-   <div class="title-area text-center">
-    <h2 class="about-title">DAR Project - Le juste prix</h2>
-    <p class="title-description">Version 0.2.0</p>
-  </div><!-- /.title-area -->
-  <div class="about-items">
-    <div class="col-sm-4">
-     <div class="item">
-      <div class="item-top">
-       <h3 class="item-title">UN joueur</h3>
-       <h4 class="sub-title">Mode solo</h4>
-     </div><!-- /.item-top -->
-     <p class="item-description">
-       Pour s'amuser comme un petit fou </p><br/><br/>
-       <a href="./solo.html" class="card__link btn">
-         <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
-         Jouer
-       </a>
+ <div class="about-area">
+ <div class="title-area text-center">
+ <h2 class="about-title">pseudo</h2>
+ <p class="title-description"><a href="./gestion.php?idMembre=".$_SESSION['id']."" class="not-in-home">Modifier le profil</a><br/></p>
+</div><!-- /.title-area -->
+<div class="about-items" style="width: 100%;">
+<div class="row" style="margin-left:5px; margin-right:5px;">
+<div class="col-sm-4">
+<div class="item">
 
-
-<!-- <a href="#popup-article4" class="card__link btn">
-       <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
-      Nous contacter  
-    </a> -->
+  <center><img src=""/></center>
+<div id="uploadPicture">
+  <center><h2 class="about-title" style="border-top:0px; margin-top:-10px;"> :( </h2></center><br/><br/> 
+    <center><h4 class="sub-title"> Pas encore d'image de profil ! </h4></center><br/>
+    
+      <form enctype="multipart/form-data" action=".\php\modifyPicture.php" method="post">
+      <input type="hidden" name="MAX_FILE_SIZE" value="2500000" />
+      <input type="hidden" name="idMembre" value="".$id.""/>
+      <input type="file" name="fic"/>
+      <br/>
+      <center><button class="buttonFancy" type="submit" name="submit" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    AJOUTER    </span></button></center>
+      </form>
+    
+   </div>
   </div><!-- /.item -->
-</div>
-<div class="col-sm-4">
- <div class="item">
+  </div>
+  <div class="col-sm-4">
+  <div class="item">
   <div class="item-top">
-   <h3 class="item-title">Multijoueur</h3>
-   <h4 class="sub-title">Pour jouer à plusieurs</h4>
- </div><!-- /.item-top -->
- <p class="item-description">
-   Comme ça on s'amuse tous ensemble
- </p><br/><br/>
- <a href="#popup-article1" class="card__link btn">
-   <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
-   Multijouer
- </a>
-</div><!-- /.item -->
-</div>
-<div class="col-sm-4">
- <div class="item">
+  <h3 class="item-title"></h3>
+  <h4 class="sub-title">Informations</h4>
+  </div><!-- /.item-top -->
+  <p class="item-description" style="margin-top:-25px">
+  <p>Prenom |".$prenom."<br />Nom |".$nom."<br />Mail |".$mail."
+  <br />Date inscription | 2017-25-17<br />Gonades | Mâle</p>
+  </div><!-- /.item -->
+  </div>
+  <div class="col-sm-4">
+  <div class="item">
   <div class="item-top">
-   <h3 class="item-title">Leaderboard</h3>
-   <h4 class="sub-title">Tableau des scores</h4>
- </div><!-- /.item-top -->
- <p class="item-description">
-  Savoir si tu est un nul ou un bon.
-</p><br/><br/>
-<a href="#popup-article2" class="card__link btn">
- <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
- Suis-je nul?!
+  <h4 class="sub-title">Liste de quizzs</h4>
+  </div><!-- /.item-top -->
+  <p class="item-description">
+
+</div><!-- /.about-items -->
+</div>
+<div class="row" style="margin-left:5px; margin-right:5px;">
+<div class="col-sm-4">
+<div class="item">
+<div class="item-top">
+<h4 class="sub-title">Score</h4>
+</div><!-- /.item-top -->
+<p class="item-description">
+
+</p>
+<a class="btn" href="#">
+<span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
+GO
 </a>
 </div><!-- /.item -->
 </div>
+</div> 
 </div><!-- /.about-items -->
 </div><!-- /.about-area -->
 </div><!-- /.container -->
 </section><!-- /#about -->
 
-<label for="text_id">texte à envoyer</label>
-<input type="text" id="text_id" />
-
-<input type="button" value="GO" onclick="go()" />
-
-<p id="resp_id">z</p>
-
-<script>
-function go() {
- var xhttp = new XMLHttpRequest();
-
- /*sur reception de la reponse*/ 
- xhttp.onreadystatechange = function() {
-  if (this.readyState == 4) {
-   document.getElementById("resp_id").innerHTML = this.responseText;
- }
-};
-
-/*texte a envoyer*/
-var text = document.getElementById("text_id").value;
-console.log("texte:"+text);
-
-/*envoi asynchrone au servlet*/
-xhttp.open("GET", "../DAR/server/test?text="+text, true);
-xhttp.send();
-}
-</script>
-
-
-
-<!-- <section id="contact" class="contact">
-  <div class="contact-area">
-    <div id="message-details" class="message-details">
-    <center><h4 class="sub-title" style="color:#888;margin-top: -30px;padding-bottom: 10px">Nous contacter</h4></center>
-      <div class="container">
-
-        <form action="email.php" method="post" id="myForm" class="message-form">
-          <div class="row">
-            <div class="col-sm-6">
-              <input id="first_name" class="form-control" name="first_name" type="text" value="" size="30" aria-required="true" placeholder="Nom*" title="first_name" required>
-              <input id="contact_email" class="form-control" name="contact_email" type="email" value="" size="30" aria-required="true" placeholder="Email*" title="contact_email"  required>
-              <input id="subject" class="form-control" name="subject" type="subject" value="" size="30" aria-required="true" placeholder="Objet*" title="Subject"  required>
-            </div>
-            <div class="col-sm-6">
-              <textarea id="message" class="form-control" name="message" cols="45" rows="3" aria-required="true" placeholder="Message" title="Message"  required></textarea>
-              <button name="submit" class="btn btn-lg full-width" type="submit" id="submit">Envoyer</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<div id="popup-article2" class="popup">
-  <div class="popup__block">
-    <section id="about" class="about">
-      <div class="container" style="width:100%">
-        <div class="about-area">
-          <div class="title-area text-center">
-            <h2 class="about-title">Connection</h2>
-            <p class="title-description">Mon compte trip-hop.net</p>
-          </div><!-- /.title-area -->
-          <center><form class="formulaire" action="./php/login.php" method="post" style="margin-top:60px;">
-            <p class="field"><input name="login" placeholder="Login" type="text" /><i class="icon-user icon-large"></i></p>
-            <p class="field"><input name="password" placeholder="Mot de passe" type="password" /><i class="icon-lock icon-large"></i></p>
-            <center><button class="buttonFancy" type="submit" name="submit" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    Connexion    </span></button></center>
-          </form></center>
-        </div><!-- /.about-area -->
-      </div><!-- /.container -->
-    </section><!-- /#about -->
-    <a href="#" class="popup__close" style="color:#fff"> CLOSE </a>
-  </div>
-</div>
-
-
 </main>
 <br/>
 <footer class="footer">
-
+  <!--  <div id="footer-top" class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div id="tweet" class="tweet text-left">
+          <div class="col-xs-4 about-tweet">
+            <span class="tweet-icon"><i class="fa fa-twitter"></i></span>
+            <span class="tweet-author">John Doe</span>
+            <p class="tweet-details">
+              Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis eupulvinar nuncint
+            </p>
+            <time datetime="PT2H">2 Hours Ago</time>
+          </div>
+          <div class="col-xs-4 about-tweet">
+            <span class="tweet-icon"><i class="fa fa-twitter"></i></span>
+            <span class="tweet-author">John Doe</span>
+            <p class="tweet-details">
+              Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis eupulvinar nuncint
+            </p>
+            <time datetime="PT2H">2 Hours Ago</time>
+          </div>
+          <div class="col-xs-4 about-tweet">
+            <span class="tweet-icon"><i class="fa fa-twitter"></i></span>
+            <span class="tweet-author">John Doe</span>
+            <p class="tweet-details">
+              Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis eupulvinar nuncint
+            </p>
+            <time datetime="PT2H">2 Hours Ago</time>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
 <div id="footer-bottom" class="footer-bottom text-center">
   <div class="container" style="padding-top:10px">
     <div id="copyright" class="copyright">
@@ -318,6 +281,9 @@ xhttp.send();
 
 <script type="text/javascript" src="assets/js/jquery.ajaxchimp.min.js"></script>
 
+
+
+
 <script>
 
 $(document).ready(function() {
@@ -334,8 +300,54 @@ $(document).ready(function() {
   }); 
 }
 
+/*----------- Google Map - with support of gmaps.js ----------------*/
+
+/*  function isMobile() { 
+   return ('ontouchstart' in document.documentElement);
+ }
+ */
+/* function init_gmap() {
+   if ( typeof google == 'undefined' ) return;
+   var options = {
+    center: [-37.817331, 144.955652],
+    zoom: 15,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+     style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+   },
+   navigationControl: true,
+   scrollwheel: false,
+   streetViewControl: true
+ }
+
+ if (isMobile()) {
+  options.draggable = true;
+}
+
+$('#googleMaps').gmap3({
+  map: {
+   options: options
+ },
+ marker: {
+   latLng: [-37.817331, 144.955652],
+   options: { icon: 'images/mapicon.png' }
+ }
+});
+}
+
+init_gmap();
+});*/
+
+/*$(document).bind("contextmenu",function()
+  {return false;}); */
 )
 </script>
+<!-- JS -->
+<!-- <script type="text/javascript" src="./js/jquery.min.js"></script>--><!-- jQuery -->
+<!--  <script type="text/javascript" src="./js/scripts.js"></script> --><!-- Scripts -->
+
+
 
 </html>
+
 

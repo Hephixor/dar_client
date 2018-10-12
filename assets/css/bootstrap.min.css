@@ -4239,8 +4239,8 @@ a.badge:focus,a.badge:hover {
 	padding:4px;
 	margin-bottom:20px;
 	line-height:1.42857143;
-	background-color:#fff;
-	border:1px solid #ddd;
+	/*background-color:#fff;*/
+	border:1px solid #3498db;
 	border-radius:4px;
 	-webkit-transition:border .2s ease-in-out;
 	-o-transition:border .2s ease-in-out;

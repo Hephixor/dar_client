@@ -1,0 +1,57 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="assets/css/style.css" rel="stylesheet">
+
+ 
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+ 
+</head>
+
+<body>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <section id="about" class="about">
+	<div class="container">
+		<div class="about-area">
+			<div class="title-area text-center">
+				<h2 class="about-title">Connection</h2>
+				<p class="title-description">Mon compte trip-hop.net</p>
+			</div><!-- /.title-area -->
+			<center><form class="formulaire" action="./php/login.php" method="post" style="margin-top:60px;">
+				<p class="field"><input name="login" placeholder="Login" type="text" /><i class="icon-user icon-large"></i></p>
+				<p class="field"><input name="password" placeholder="Mot de passe" type="password" /><i class="icon-lock icon-large"></i></p>
+				<center><button class="buttonFancy" type="submit" name="submit" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    Connexion    </span></button></center>
+			</form></center>
+		</div><!-- /.about-area -->
+	</div><!-- /.container -->
+</section><!-- /#about -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
