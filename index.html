@@ -1,13 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Le Just Prix - DAR 2018</title>
+
+  <!-- Meta values -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="M2_STL_DAR" >
   <meta name="keywords" content="" />
   <meta name="author" content="M2_STL">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Styles -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/magnific-popup.css">
@@ -16,6 +20,8 @@
   <link href="assets/css/owl.carousel.css" rel="stylesheet">  <link href="assets/css/responsive.css" rel="stylesheet">
   <link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="assets/css/loader.css">
+
+  <!-- Bootstrap scripts -->
   <script src="assets/js/modernizr-2.8.3.min.js"></script>
   <script src="assets/js/jquery-2.1.0.min.js"></script>
   <script src="assets/js/jquery.magnific-popup.min.js"></script>
@@ -25,102 +31,17 @@
   <script src="assets/js/wow.min.js"></script>
   <script src="js/vendor/modernizr-2.6.2.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+  <script src="js/vendor/jquery-1.9.1.min.js"></script>
+  <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+
+  <!-- Useful scripts -->
   <script src="js/main.js"></script>
-
-  <script>
-
-  function signup(u, p, c, r) {
-    var xhttp = new XMLHttpRequest();
-
-    /*sur reception de la reponse*/
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4) {
-        document.getElementById(r).innerHTML = this.responseText; }};
-
-        /*texte a envoyer*/
-        var params =
-        "username=" + document.getElementById(u).value +
-        "&password=" + document.getElementById(p).value +
-        "&confirmation=" + document.getElementById(c).value;
-
-        /*envoi asynchrone au servlet*/
-        xhttp.open("POST", "../../server/signup" , true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send(params);
-      }
-    </script>
-
+  <script src="include/functions.js"></script>
+  <script src="include/sha.js"></script>
 </head>
 
 <body class="header-fixed-top">
-  <div id="loader-wrapper">
-    <div id="loader"></div>
-    <div class="loader-section section-left"><!-- <img src="images/logo2.jpg" alt="Site Logo"> --></div>
-    <div class="loader-section section-right"></div>
-  </div>
-  <div id="page-top" class="page-top"></div><!-- /.page-top -->
-  <section id="site-banner" class="site-banner text-center">
-
-    <div class="container">
-      <div id="particles-js"></div>
-      <script src="js/particles.js"></script>
-      <script src="js/app.js"></script>
-      <div class="site-logo">
-      </div><!-- /.site-logo -->
-    </div><!-- /.container -->
-  </section><!-- /#site-banner -->
-  <header id="main-menu" class="main-menu">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-7" style="padding-top:5px;">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
-              <i class="fa fa-bars"></i>
-            </button>
-            <div class="menu-logo">
-              <a href="./"><img src="images/logo_jp.png" alt="menu Logo"></a>
-            </div><!-- /.menu-logo -->
-          </div>
-          <nav id="menu" class="menu collapse navbar-collapse">
-            <ul id="headernavigation" class="menu-list nav navbar-nav">
-              <li class="square"><a href="./index.html" class="not-in-home tenth before after">Accueil</a></li>
-              <li class="square"><a href="./solo.html" class="not-in-home tenth before after ">Solo</a></li>
-              <li class="square"><a href="./multi.html" class="not-in-home tenth before after">Multijoueur</a></li>
-              <li class="square"><a href="./profil.html" class="not-in-home tenth before after">Profil</a></li>
-              <li ><a>Plus &darr;</a>
-                <div class="dropdown-content">
-                  <center>
-                    <a href="#popup-article2"> Connexion </a><br/>
-                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
-                    <a href="#popup-article1"> Inscription </a><br/>
-                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
-                    <a href="rules.html" class="not-in-home">Règles</a><br/>
-                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
-                    <a href="infos.html" class="not-in-home">Informations</a><br/>
-                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
-                    <a href="leaderboards.html" class="not-in-home">Leaderboards</a><br/>
-                    <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
-                    <a href="x.php" class="not-in-home">XXX</a><br/>
-                  </center>
-                </div>
-              </li>
-            </ul><!-- /.menu-list -->
-          </nav><!-- /.menu-list -->
-        </div>
-
-        <div class="col-sm-5" style="padding-top 10px;">
-          <div class="menu-search pull-right" style="margin-top: -5px;">
-            <form role="search" class="search-form" action="searchResults.php" method="get">
-              <input class="search-field" type="text" name="s" id="s" placeholder="Rechercher" required>
-              <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
-            </form><!-- /.search-form -->
-          </div><!-- /.menu-search -->
-        </div>
-      </div><!-- /.row -->
-    </div><!-- /.container -->
-  </header><!-- /#main-menu -->
-
+  <div id="header"></div>
   <section id="about" class="about">
     <div class="container">
       <div class="about-area">
@@ -178,128 +99,12 @@
       </div><!-- /.container -->
     </section><!-- /#about -->
 
-    <!--
-    <label for="text_id">texte à envoyer</label>
-    <input type="text" id="text_id" />
-
-    <input type="button" value="GO" onclick="go()" />
-
-    <p id="resp_id">z</p> -->
-
-    <script>
-    function go() {
-      var xhttp = new XMLHttpRequest();
-
-      /*sur reception de la reponse*/
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4) {
-          document.getElementById("resp_id").innerHTML = this.responseText;
-        }
-      };
-
-      /*texte a envoyer*/
-      var text = document.getElementById("text_id").value;
-      console.log("texte:"+text);
-
-      /*envoi asynchrone au servlet*/
-      xhttp.open("GET", "../../server/test?text="+text, true);
-      xhttp.send();
-    }
-  </script>
+    	<h2>Servlet /showsession</h2>
+    	<input type="button" value="GO" onclick="showsession()" />
+    	<p id="showsession_resp_id"></p>
 
 
-  <div id="popup-article2" class="popup">
-    <div class="popup__block">
-      <section id="about" class="about">
-        <div class="container" style="width:100%">
-          <div class="about-area">
-            <div class="title-area text-center">
-              <h2 class="about-title">Connection</h2>
-              <p class="title-description">Mon compte le juste prix</p>
-            </div><!-- /.title-area -->
-            <center><form class="formulaire" action="./php/login.php" method="post" style="margin-top:60px;">
-              <p class="field"><input name="login" placeholder="Login" type="text" /><i class="icon-user icon-large"></i></p>
-              <p class="field"><input name="password" placeholder="Mot de passe" type="password" /><i class="icon-lock icon-large"></i></p>
-              <center><button class="buttonFancy" type="submit" name="submit" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    Connexion    </span></button></center>
-            </form></center>
-          </div><!-- /.about-area -->
-        </div><!-- /.container -->
-      </section><!-- /#about -->
-      <a href="#" class="popup__close" style="color:#fff"> CLOSE </a>
-    </div>
-  </div>
 
-
-  <div id="popup-article1" class="popup">
-    <div class="popup__block">
-      <section id="about" class="about">
-        <div class="container" style="width:100%">
-          <div class="about-area">
-            <div class="title-area text-center">
-              <h2 class="about-title">Inscription</h2>
-              <p class="title-description">Mon compte le juste prix</p>
-            </div><!-- /.title-area -->
-            <center>
-              <div class="formulaire" style="margin-top:50px;">
-              <p class="field"><input type="text" id="username_id" placeholder="username" /><i class="icon-user icon-large"></i></p>
-              <p class="field"><input type="password" id="password_id" placeholder="password" /><i class="icon-lock icon-large"></i></p>
-              <p class="field"><input type="password" id="confirmation_id" placeholder="confirm password" /><i class="icon-lock icon-large"></i></p>
-              <button class="buttonFancy" value="Sign Up" onclick="signup('username_id', 'password_id', 'confirmation_id', 'signup_resp_id')"  style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    S'inscrire    </span></button>
-              <p id="signup_resp_id"></p>
-            </div>
-
-            </center>
-          </div><!-- /.about-area -->
-        </div><!-- /.container -->
-      </section><!-- /#about -->
-      <a href="#" class="popup__close" style="color:#fff"> CLOSE </a>
-    </div>
-  </div>
-
-
-  <br/>
-  <footer class="footer">
-
-    <div id="footer-bottom" class="footer-bottom text-center">
-      <div class="container" style="padding-top:10px">
-        <div id="copyright" class="copyright">
-          &copy; <a href="https://www-apr.lip6.fr/~demangeon/DAR-18.html">DAR project</a>  2018 - Developed by <a href="http://google.com">William Sergeant & Vicent Havinh</a>
-        </div><!-- /#copyright -->
-      </div>
-    </div><!-- /#footer-bottom -->
-  </footer>
-
-
-</div>
+<div id="footer"></div>
 </body>
-<div id="scroll-to-top" class="scroll-to-top">
-  <span>
-    <i class="fa fa-chevron-up" style="top:50%"></i>
-  </span>
-</div><!-- /#scroll-to-top -->
-
-
-
-
-<script type="text/javascript" src="assets/js/jquery.ajaxchimp.min.js"></script>
-
-<script>
-
-$(document).ready(function() {
-
-  /* -------- One page Navigation ----------*/
-  $('#main-menu #menu').onePageNav({
-    currentClass: 'active',
-    changeHash: false,
-    scrollSpeed: 1500,
-    scrollThreshold: 0.5,
-    scrollOffset: 95,
-    filter: ':not(.sub-menu a, .not-in-home)',
-    easing: 'swing'
-  });
-}
-
-)
-</script>
-
 </html>
