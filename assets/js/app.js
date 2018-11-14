@@ -3,8 +3,8 @@
 /* ----------------------------------------------- */
 
 /* To load a config file (particles.json) you need to host this demo (MAMP/WAMP/local)... */
-/*
-particlesJS.load('particles-js', 'particles.json', function() {
+
+/*particlesJS.load('particles-js', 'particles.json', function() {
   console.log('particles.js loaded - callback');
 });
 */
@@ -34,7 +34,7 @@ particlesJS('particles-js',
         "nb_sides": 5
       },
       "image": {
-        "src": "../images/logo2.jpg",
+        "src": "../../images/logo2.jpg",
         "width": 100,
         "height": 100
       }
