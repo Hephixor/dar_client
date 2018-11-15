@@ -15,6 +15,37 @@ function display(id) {
   }
 }
 
+function checkIfOnline(){
+  var r = "sessions_get_resp_id";
+  var xhttp = new XMLHttpRequest();
+  //xhttp.responseType= 'json';
+
+  /*sur reception de la reponse*/
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4) {
+  //    document.getElementById(r).innerHTML = this.responseText;
+      console.log(this.responseText);
+    }};
+
+      /*envoi asynchrone au servlet*/
+      xhttp.open("GET", "../../server/sessions" , true);
+      xhttp.send();
+}
+
+function sessions_get() {
+  var r = "sessions_get_resp_id";
+  var xhttp = new XMLHttpRequest();
+
+  /*sur reception de la reponse*/
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      document.getElementById(r).innerHTML = this.responseText; }};
+      /*envoi asynchrone au servlet*/
+      xhttp.open("GET", "../../server/sessions" , true);
+      xhttp.send();
+}
+
+
 function make_questions(json){
   var title1 = "question_1_title";
   var title2 = "question_2_title";
@@ -48,13 +79,12 @@ function answers_post(numero_reponse) {
 
   var r = "answers_post_resp_id";
   var xhttp = new XMLHttpRequest();
-  xhttp.responseType = 'json'
+  xhttp.responseType = 'json';
   /*sur reception de la reponse*/
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var json = JSON.parse(JSON.stringify(this.response));
-      console.log(json);
-      if(json!=null){
+      if(json!=null){Text
         document.getElementById(r).innerHTML = Object.values(this.response);
         document.getElementById("score").innerHTML="SCORE : "+ json['score'];
       }
@@ -71,13 +101,13 @@ function answers_post(numero_reponse) {
 
 
       questions_get();
-    }
+}
 
     function questions_get() {
       document.getElementById("content").hidden=true;
       var r = "questions_get_resp_id";
       var xhttp = new XMLHttpRequest();
-      xhttp.responseType = 'json'
+      xhttp.responseType = 'json';
 
       /*sur reception de la reponse*/
       xhttp.onreadystatechange = function() {
@@ -104,27 +134,17 @@ function answers_post(numero_reponse) {
 
         /*sur reception de la reponse*/
         xhttp.onreadystatechange = function() {
-          if (this.readyState == 4) {
-            document.getElementById(r).innerHTML = this.responseText; }};
+          if (this.readyState == 4 && this.status == 200) {
+            //document.getElementById(r).innerHTML = this.responseText;
+            document.location.href="index.html";
+          }};
 
             /*envoi asynchrone au servlet*/
             xhttp.open("DELETE", "../../server/sessions" , true);
             xhttp.send();
           }
 
-          function sessions_get() {
-            var r = "sessions_get_resp_id";
-            var xhttp = new XMLHttpRequest();
 
-            /*sur reception de la reponse*/
-            xhttp.onreadystatechange = function() {
-              if (this.readyState == 4) {
-                document.getElementById(r).innerHTML = this.responseText; }};
-
-                /*envoi asynchrone au servlet*/
-                xhttp.open("GET", "../../server/sessions" , true);
-                xhttp.send();
-              }
 
               function test() {
                 var t = "test_text_id";
@@ -173,11 +193,26 @@ function answers_post(numero_reponse) {
                         var p = "sessions_post_password_id";
                         var r = "sessions_post_resp_id";
                         var xhttp = new XMLHttpRequest();
+                        xhttp.responseType = 'json';
 
                         /*sur reception de la reponse*/
                         xhttp.onreadystatechange = function() {
                           if (this.readyState == 4) {
-                            document.getElementById(r).innerHTML = this.responseText; }};
+                            //document.getElementById(r).innerHTML = this.responseText;
+                            var json = JSON.parse(JSON.stringify(this.response));
+                            console.log(json);
+                            if(json!=null){
+                              if(json['success']==true){
+                                  document.getElementById('popup2close').click();
+                                  document.getElementById('sessions_post_resp_id').hidden=true;
+                              }
+                              if(json['success']==false){
+                                document.getElementById('sessions_post_resp_id').hidden=false;
+                                document.getElementById('explanations1').innerHTML = json['errors'];
+                              }
+                            }
+
+                          }};
 
                             /*texte a envoyer*/
                             var params =

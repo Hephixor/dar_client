@@ -5,4 +5,4 @@ todo :
 Redirect home on logout
 Hide useless options when not connected
 
-game
+Reponses sessions in JSON

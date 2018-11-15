@@ -40,7 +40,7 @@
   <script src="include/sha.js"></script>
 </head>
 
-<body class="header-fixed-top">
+<body class="header-fixed-top" onload="checkIfOnline()">
   <div id="header"></div>
   <section id="about" class="about">
     <div class="container">
@@ -99,10 +99,12 @@
       </div><!-- /.container -->
     </section><!-- /#about -->
 
-    <h3>SESSION GET</h3>
+    <h3>GET</h3>
     <input type="button" value="GO" onclick="sessions_get()" />
     <p id="sessions_get_resp_id"></p>
-
+    <div>
+    <br /><br /><br /><br /><br />
+    </div>
 
 
 <div id="footer"></div>

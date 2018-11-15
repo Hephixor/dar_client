@@ -10,14 +10,19 @@
           <center><div class="formulaire" style="margin-top:60px;">
             <p class="field"><input id="sessions_post_username_id" placeholder="Login" type="text" /><i class="icon-user icon-large"></i></p>
             <p class="field"><input id="sessions_post_password_id" placeholder="Mot de passe" type="password" /><i class="icon-lock icon-large"></i></p>
-            <center><button class="buttonFancy" onclick="sessions_post()" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    Connexion    </span></button></center>
-            <p id="sessions_post_resp_id"></p>
+            <center>
+              <div id="sessions_post_resp_id" class="alert alert-danger" hidden="true">
+                <strong>Error</strong>
+                <div id="explanations1"></div>
+              </div>
+              <button class="buttonFancy" onclick="sessions_post()" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    Connexion    </span></button>
+            </center>
           </div>
         </center>
         </div><!-- /.about-area -->
       </div><!-- /.container -->
     </section><!-- /#about -->
-    <a href="#" class="popup__close" style="color:#fff"> CLOSE </a>
+    <a id="popup2close" href="#" class="popup__close" style="color:#fff"> CLOSE </a>
   </div>
 </div>
 
@@ -44,7 +49,7 @@
         </div><!-- /.about-area -->
       </div><!-- /.container -->
     </section><!-- /#about -->
-    <a href="#" class="popup__close" style="color:#fff"> CLOSE </a>
+    <a id="popup1close" href="#" class="popup__close" style="color:#fff"> CLOSE </a>
   </div>
 </div>
 
