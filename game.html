@@ -40,47 +40,56 @@
   <script src="include/sha.js"></script>
 </head>
 
-<body class="header-fixed-top">
+<body class="header-fixed-top" onload="questions_get()">
   <div id="header"></div>
+
+
+  <div id="score">SCORE : 0</div>
+
+
 <section id="latest-post" class="latest-post" style="padding-top: 40px;">
   <div class="container"  style="width:100%">
     <div class="post-area" style="width:100%">
       <div class="post-area-top text-center">
-        <h2 class="post-area-title" style="color:#FFF">250 €</h2>
+        <h2 class="post-area-title" style="color:#FFF" id="question_price"></h2>
         <p class="title-description">Lequel coûte ce prix ?</p>
       </div><!-- /.post-area-top -->
     </div><!-- /.row -->
   </div><!-- /.post-area -->
 </section><!-- /#latest-post -->
 <section id="pricing">
-  <div class="container" style="width:90%">
+  <div id="content" class="container" style="width:90%" hidden="true">
     <div class="col-sm-6 ">
       <div class="thumbnail news">
-        <img src="images/background/wpb2.jpg" alt="menu Logo" style="display: block; data-holder-rendered="true"">
+        <div id="question_1_pid" hidden="true"></div>
+        <img id="question_1_picture" src="images/background/wpb2.jpg" alt="item1" style="display: block; data-holder-rendered="true"">
         <div class="st-border" style="width:100%;background-color:#3498db;margin-top: 10px;"></div>
         <div class="caption">
           <center>
-            <h6>Une table basse</h6>
-            <p>Très jolie</p>
-            <a style="color:#3498db; border-color:#3498db" class="btn btn-lg btn-chronique" href="" role="button" onMouseOver="this.style.color='#FFF'" onMouseOut="this.style.color='#3498db'">ICI</a></center></p>
+            <h6 id="question_1_title"></h6>
+            <p></p>
+            <button style="color:#3498db; border-color:#3498db" class="btn btn-lg btn-chronique" href="" role="button" onMouseOver="this.style.color='#FFF'" onMouseOut="this.style.color='#3498db'" onclick="answers_post(1)">ICI</button></center></p>
           </div>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="thumbnail news">
-          <img src="images/background/background_03f.png" alt="menu Logo" style="display: block; data-holder-rendered="true"">
+          <div id="question_2_pid" hidden="true"></div>
+          <img id="question_2_picture" src="images/background/background_03f.png" alt="item1" style="display: block; data-holder-rendered="true"">
           <div class="st-border" style="width:100%;background-color:#3498db;margin-top: 10px;"></div>
           <div class="caption">
             <center>
-              <h6>Une chaise</h6>
-              <p>Très moche</p>
-              <a style="color:#3498db; border-color:#3498db" class="btn btn-lg btn-chronique" href="" role="button" onMouseOver="this.style.color='#FFF'" onMouseOut="this.style.color='#3498db'">ICI</a></center></p>
+              <h6 id="question_2_title"></h6>
+              <p></p>
+              <button style="color:#3498db; border-color:#3498db" class="btn btn-lg btn-chronique" href="" role="button" onMouseOver="this.style.color='#FFF'" onMouseOut="this.style.color='#3498db'" onclick="answers_post(2)">ICI</button></center></p>
             </div>
           </div>
         </div>
       </div>
     </section>
     <br/>
+
+    <p id="answers_post_resp_id"></p>
 
     <div id="footer"></div>
     </body>

@@ -1365,7 +1365,7 @@ kbd {
 	font-size:90%;
 	color:#fff;
 	background-color:#333;
-	border-radius:3px;
+	border-radius:3px; 
 	-webkit-box-shadow:inset 0 -1px 0 rgba(0,0,0,.25);
 	box-shadow:inset 0 -1px 0 rgba(0,0,0,.25)
 }
@@ -2808,7 +2808,7 @@ select[multiple].form-group-lg .form-control,textarea.form-group-lg .form-contro
 
 .btn-chronique {
   color: #fff;
-  /* background-color: #7DA4FF;*/
+  background-color: transparent;
   border-color: #fff;
   border-radius: 15px;
   margin-top: -10 px;

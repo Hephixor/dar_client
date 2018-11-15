@@ -8,10 +8,10 @@
             <p class="title-description">Mon compte le juste prix</p>
           </div><!-- /.title-area -->
           <center><div class="formulaire" style="margin-top:60px;">
-            <p class="field"><input id="login_username_id" placeholder="Login" type="text" /><i class="icon-user icon-large"></i></p>
-            <p class="field"><input id="login_password_id" placeholder="Mot de passe" type="password" /><i class="icon-lock icon-large"></i></p>
-            <center><button class="buttonFancy" onclick="login('login_username_id', 'login_password_id', 'login_resp_id')" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    Connexion    </span></button></center>
-            <p id="login_resp_id"></p>
+            <p class="field"><input id="sessions_post_username_id" placeholder="Login" type="text" /><i class="icon-user icon-large"></i></p>
+            <p class="field"><input id="sessions_post_password_id" placeholder="Mot de passe" type="password" /><i class="icon-lock icon-large"></i></p>
+            <center><button class="buttonFancy" onclick="sessions_post()" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    Connexion    </span></button></center>
+            <p id="sessions_post_resp_id"></p>
           </div>
         </center>
         </div><!-- /.about-area -->
@@ -33,11 +33,11 @@
           </div><!-- /.title-area -->
           <center>
             <div class="formulaire" style="margin-top:50px;">
-            <p class="field"><input type="text" id="signup_username_id" placeholder="username" /><i class="icon-user icon-large"></i></p>
-            <p class="field"><input type="password" id="signup_password_id" placeholder="password" /><i class="icon-lock icon-large"></i></p>
-            <p class="field"><input type="password" id="signup_confirmation_id" placeholder="confirm password" /><i class="icon-lock icon-large"></i></p>
-            <button class="buttonFancy" value="Sign Up" onclick="signup('username_id', 'password_id', 'confirmation_id', 'signup_resp_id')"  style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    S'inscrire    </span></button>
-            <p id="signup_resp_id"></p>
+            <p class="field"><input type="text" id="users_post_username_id" placeholder="username" /><i class="icon-user icon-large"></i></p>
+            <p class="field"><input type="password" id="users_post_password_id" placeholder="password" /><i class="icon-lock icon-large"></i></p>
+            <p class="field"><input type="password" id="users_post_confirmation_id" placeholder="confirm password" /><i class="icon-lock icon-large"></i></p>
+            <button class="buttonFancy" value="Sign Up" onclick="users_post()"  style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    S'inscrire    </span></button>
+            <p id="users_post_resp_id"></p>
           </div>
 
           </center>
