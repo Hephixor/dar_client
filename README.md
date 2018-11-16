@@ -3,3 +3,4 @@
 todo :
 
 escape html chars
+load leaderboards

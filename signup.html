@@ -1,199 +1,142 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Le Just Prix - DAR 2018</title>
+
+  <!-- Meta values -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="M2_STL_DAR" >
   <meta name="keywords" content="" />
   <meta name="author" content="M2_STL">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Styles -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <link href="assets/css/magnific-popup.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/animate.min.css" rel="stylesheet">
-  <link href="assets/css/owl.carousel.css" rel="stylesheet">  <link href="assets/css/responsive.css" rel="stylesheet">
-  <link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="assets/css/loader.css">
+  <link href="assets/css/owl.carousel.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
+  <link href="assets/css/font-awesome.css" rel="stylesheet">
+  <link href="assets/css/loader.css" rel="stylesheet">
+
+  <!-- Bootstrap scripts -->
   <script src="assets/js/modernizr-2.8.3.min.js"></script>
   <script src="assets/js/jquery-2.1.0.min.js"></script>
   <script src="assets/js/jquery.magnific-popup.min.js"></script>
-  <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-  <script src="assets/js/gmap3.js"></script>  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/gmap3.js"></script>
+  <script src="assets/js/plugins.js"></script>
   <script src="assets/js/functions.js"></script>
   <script src="assets/js/wow.min.js"></script>
-  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-  <script src="js/main.js"></script>
+  <script src="assets/js/vendor/modernizr-2.6.2.min.js"></script>
+  <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <!-- Useful scripts -->
+
+  <script src="include/functions.js"></script>
+  <script src="include/sha.js"></script>
   <script>
-
-  function signup(u, p, c, r) {
-    var xhttp = new XMLHttpRequest();
-
-    /*sur reception de la reponse*/
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4) {
-        document.getElementById(r).innerHTML = this.responseText; }};
-
-        /*texte a envoyer*/
-        var params =
-        "username=" + document.getElementById(u).value +
-        "&password=" + document.getElementById(p).value +
-        "&confirmation=" + document.getElementById(c).value;
-
-        /*envoi asynchrone au servlet*/
-        xhttp.open("POST", "../../server/signup" , true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send(params);
-      }
+    function start(){
+      checkIfOnlineGame();
+      questions_get();
+    }
     </script>
-  </head>
+</head>
 
-  <body class="header-fixed-top">
-    <div id="loader-wrapper">
-      <div id="loader"></div>
-      <div class="loader-section section-left"><!-- <img src="images/logo2.jpg" alt="Site Logo"> --></div>
-      <div class="loader-section section-right"></div>
-    </div>
-    <div id="page-top" class="page-top"></div><!-- /.page-top -->
-    <section id="site-banner" class="site-banner text-center">
-      <div class="container">
-        <div id="particles-js"></div>
-        <script src="js/particles.js"></script>
-        <script src="js/app.js"></script>
-        <div class="site-logo">
-        </div><!-- /.site-logo -->
-      </div><!-- /.container -->
-    </section><!-- /#site-banner -->
-    <header id="main-menu" class="main-menu">
-      <div class="container">
+<body>
+    <div class="container">
+    	<div class="row">
+			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+				<ul class="event-list">
+					<li>
+						<time datetime="2014-07-20">
+							<span class="day">4</span>
+							<span class="month">Jul</span>
+							<span class="year">2014</span>
+							<span class="time">ALL DAY</span>
+						</time>
+						<div class="info">
+							<h2 class="title">Independence Day</h2>
+							<p class="desc">United States Holiday</p>
+						</div>
+					</li>
+
+					<li>
+						<time datetime="2014-07-20 0000">
+							<span class="day">8</span>
+							<span class="month">Jul</span>
+							<span class="year">2014</span>
+							<span class="time">12:00 AM</span>
+						</time>
+						<div class="info">
+							<h2 class="title">One Piece Unlimited World Red</h2>
+							<p class="desc">PS Vita</p>
+						</div>
+					</li>
+
+					<li>
+						<time datetime="2014-07-20 2000">
+							<span class="day">20</span>
+							<span class="month">Jan</span>
+							<span class="year">2014</span>
+							<span class="time">8:00 PM</span>
+						</time>
+						<div class="info">
+							<h2 class="title">Mouse0270's 24th Birthday!</h2>
+							<p class="desc">Bar Hopping in Erie, Pa.</p>
+						</div>
+					</li>
+
+					<li>
+						<time datetime="2014-07-31 1600">
+							<span class="day">31</span>
+							<span class="month">Jan</span>
+							<span class="year">2014</span>
+							<span class="time">4:00 PM</span>
+						</time>
+						<div class="info">
+							<h2 class="title">Disney Junior Live On Tour!</h2>
+							<p class="desc"> Pirate and Princess Adventure</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+    <div class="container">
         <div class="row">
-          <div class="col-sm-7" style="padding-top:5px;">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
-                <i class="fa fa-bars"></i>
-              </button>
-              <div class="menu-logo">
-                <a href="./"><img src="images/logo_jp.png" alt="menu Logo"></a>
-              </div><!-- /.menu-logo -->
-            </div>
-            <nav id="menu" class="menu collapse navbar-collapse">
-              <ul id="headernavigation" class="menu-list nav navbar-nav">
-                <li class="square"><a href="./index.html" class="not-in-home tenth before after">Accueil</a></li>
-                <li class="square"><a href="./solo.html" class="not-in-home tenth before after ">Solo</a></li>
-                <li class="square"><a href="./multi.html" class="not-in-home tenth before after">Multijoueur</a></li>
-                <li class="square"><a href="./profil.html" class="not-in-home tenth before after">Profil</a></li>
-                <li ><a>Plus &darr;</a>
-                  <div class="dropdown-content">
-                    <center>
-                      <a href="#popup-article2" class="card__link btn">
-                        <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
-                        Suis-je nul?!
-                      </a><br/>
-                      <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
-                      <a href="rules.html" class="not-in-home">Règles</a><br/>
-                      <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
-                      <a href="infos.html" class="not-in-home">Informations</a><br/>
-                      <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
-                      <a href="leaderboards.html" class="not-in-home">Leaderboards</a><br/>
-                      <div style="width: 90%; border-bottom: 1px solid #d7dee0"></div>
-                      <a href="x.php" class="not-in-home">XXX</a><br/>
-                    </center>
-                  </div>
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+            <ul class="list-group" id="contact-list">
+                    <li class="list-group-item">
+                        <div class="col-xs-12 col-sm-3">
+                            <time datetime="2014-07-31 1600">
+    						    <span class="day">31</span>
+							    <span class="month">Jan</span>
+							    <span class="year">2014</span>
+							    <span class="time">4:00 PM</span>
+						    </time>
+                        </div>
+                        <div class="col-xs-12 col-sm-9">
+                            <span class="name">Scott Stevens</span><br/>
+                            <span class="glyphicon glyphicon-map-marker text-muted c-info" data-toggle="tooltip" title="5842 Hillcrest Rd"></span>
+                            <span class="visible-xs"> <span class="text-muted">5842 Hillcrest Rd</span><br/></span>
+                            <span class="glyphicon glyphicon-earphone text-muted c-info" data-toggle="tooltip" title="(870) 288-4149"></span>
+                            <span class="visible-xs"> <span class="text-muted">(870) 288-4149</span><br/></span>
+                            <span class="fa fa-comments text-muted c-info" data-toggle="tooltip" title="scott.stevens@example.com"></span>
+                            <span class="visible-xs"> <span class="text-muted">scott.stevens@example.com</span><br/></span>
+                        </div>
+                    <div class="clearfix"></div>
                 </li>
-              </ul><!-- /.menu-list -->
-            </nav><!-- /.menu-list -->
-          </div>
-          <div class="col-sm-5" style="padding-top 10px;">
-            <div class="menu-search pull-right" style="margin-top: -5px;">
-              <form role="search" class="search-form" action="searchResults.php" method="get">
-                <input class="search-field" type="text" name="s" id="s" placeholder="Rechercher" required>
-                <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
-              </form><!-- /.search-form -->
-            </div><!-- /.menu-search -->
-          </div>
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </header><!-- /#main-menu -->
-
-    <section class="about">
-      <div class="container">
-        <div class="about-area">
-          <div class="title-area text-center">
-            <h2 class="about-title">Inscription</h2>
-            <p class="title-description"><br/></p>
-          </div><!-- /.title-area -->
-          <div class="about-items" style="width: 100%;">
-            <div class="col-sm-4">
-            </div>
-            <div class="col-sm-4">
-              <div class="item">
-                <div class="item-top"  style="border-bottom: 0px solid #d7dee0;">
-                  <h3 class="item-title"></h3>
-                  <h4 class="sub-title">Informations</h4>
-                </div><!-- /.item-top -->
-                <p class="item-description" style="margin-top:-25px">
-                  <center>
-                    <h2>Servlet /signup</h2>
-                    <div class="formulaire">
-                    <p class="field"><input type="text" id="username_id" placeholder="username" /><i class="icon-user icon-large"></i></p>
-                    <p class="field"><input type="password" id="password_id" placeholder="password" /><i class="icon-lock icon-large"></i></p>
-                    <p class="field"><input type="password" id="confirmation_id" placeholder="confirm password" /><i class="icon-lock icon-large"></i></p>
-                    <button class="buttonFancy" value="Sign Up" onclick="signup('username_id', 'password_id', 'confirmation_id', 'signup_resp_id')"  style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    S'inscrire    </span></button>
-                    <p id="signup_resp_id"></p>
-                  </div>
-                    <br/>
-                    <br/>
-                  </center>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div><!-- /.about-items -->
-    </div><!-- /.about-area -->
-  </div><!-- /.container -->
-</section><!-- /#about -->
-<br/><br/>
-<br/>
-<footer class="footer">
-
-  <div id="footer-bottom" class="footer-bottom text-center">
-    <div class="container" style="padding-top:10px">
-      <div id="copyright" class="copyright">
-        &copy; <a href="https://www-apr.lip6.fr/~demangeon/DAR-18.html">DAR project</a>  2018 - Developed by <a href="http://google.com">William Sergeant & Vicent Havinh</a>
-      </div><!-- /#copyright -->
+        </div>
     </div>
-  </div><!-- /#footer-bottom -->
-</footer>
-
-
-</div>
 </body>
-<div id="scroll-to-top" class="scroll-to-top">
-  <span>
-    <i class="fa fa-chevron-up" style="top:50%"></i>
-  </span>
-</div><!-- /#scroll-to-top -->
-<script>
-
-$(document).ready(function() {
-
-  /* -------- One page Navigation ----------*/
-  $('#main-menu #menu').onePageNav({
-    currentClass: 'active',
-    changeHash: false,
-    scrollSpeed: 1500,
-    scrollThreshold: 0.5,
-    scrollOffset: 95,
-    filter: ':not(.sub-menu a, .not-in-home)',
-    easing: 'swing'
-  });
-}
-
-)
-</script>
-
 </html>

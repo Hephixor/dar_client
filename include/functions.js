@@ -46,6 +46,7 @@ function checkIfOnlineMenu(){
 }
 
 function checkIfOnlineGame(){
+  checkIfOnlineMenu();
   var xhttp = new XMLHttpRequest();
   xhttp.responseType= 'json';
 
