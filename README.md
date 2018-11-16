@@ -1,6 +1,6 @@
 # dar_client
 
-todo :
-
-escape html chars
-load leaderboards
+## todo :
+### profil
+### friendships
+### quizzs perso

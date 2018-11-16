@@ -38,9 +38,15 @@
 
   <script src="include/functions.js"></script>
   <script src="include/sha.js"></script>
+  <script>
+  function start(){
+    checkIfOnline();
+    leaderboards_get();
+  }
+  </script>
 </head>
 
-<body class="header-fixed-top" onload="checkIfOnline()">
+<body class="header-fixed-top" onload="start()">
   <div id="header"></div>
 
 
@@ -74,8 +80,8 @@
                 <span class="day">1</span>
               </time>
               <div class="info">
-                <h2 class="title">William</h2>
-                <p class="desc">2114 pts</p>
+                <h2 id="user_name_0" class="title"></h2>
+                <p id="user_score_0" class="desc"></p>
               </div>
             </li>
 
@@ -84,8 +90,8 @@
                 <span class="day">2</span>
               </time>
               <div class="info">
-                <h2 class="title">William</h2>
-                <p class="desc">2114 pts</p>
+                <h2 id="user_name_1" class="title"></h2>
+                <p id="user_score_1" class="desc"></p>
               </div>
             </li>
 
@@ -94,8 +100,8 @@
                 <span class="day">3</span>
               </time>
               <div class="info">
-                <h2 class="title">William</h2>
-                <p class="desc">2114 pts</p>
+                <h2 id="user_name_2" class="title"></h2>
+                <p id="user_score_2" class="desc"></p>
               </div>
             </li>
 
@@ -104,8 +110,8 @@
                 <span class="day">4</span>
               </time>
               <div class="info">
-                <h2 class="title">William</h2>
-                <p class="desc">2114 pts</p>
+                <h2 id="user_name_3" class="title"></h2>
+                <p id="user_score_3" class="desc"></p>
               </div>
             </li>
 
@@ -114,8 +120,8 @@
                 <span class="day">5</span>
               </time>
               <div class="info">
-                <h2 class="title">William</h2>
-                <p class="desc">2114 pts</p>
+                <h2 id="user_name_4" class="title"></h2>
+                <p id="user_score_4" class="desc"></p>
               </div>
             </li>
 
@@ -124,8 +130,8 @@
                 <span class="day">6</span>
               </time>
               <div class="info">
-                <h2 class="title">William</h2>
-                <p class="desc">2114 pts</p>
+                <h2 id="user_name_5" class="title"></h2>
+                <p id="user_score_5" class="desc"></p>
               </div>
             </li>
 
@@ -134,8 +140,8 @@
                 <span class="day">7</span>
               </time>
               <div class="info">
-                <h2 class="title">William</h2>
-                <p class="desc">2114 pts</p>
+                <h2 id="user_name_6" class="title"></h2>
+                <p id="user_score_6" class="desc"></p>
               </div>
             </li>
 
@@ -144,8 +150,8 @@
                 <span class="day">8</span>
               </time>
               <div class="info">
-                <h2 class="title">William</h2>
-                <p class="desc">2114 pts</p>
+                <h2 id="user_name_7" class="title"></h2>
+                <p id="user_score_7" class="desc"></p>
               </div>
             </li>
 
@@ -154,8 +160,8 @@
                 <span class="day">9</span>
               </time>
               <div class="info">
-                <h2 class="title">William</h2>
-                <p class="desc">2114 pts</p>
+                <h2 id="user_name_8" class="title"></h2>
+                <p id="user_score_8" class="desc"></p>
               </div>
             </li>
 
@@ -164,10 +170,11 @@
                 <span class="day">10</span>
               </time>
               <div class="info">
-                <h2 class="title">William</h2>
-                <p class="desc">2114 pts</p>
+                <h2 id="user_name_9" class="title"></h2>
+                <p id="user_score_9" class="desc"></p>
               </div>
             </li>
+
 
           </ul>
         </div>

@@ -15,6 +15,62 @@ function display(id) {
     }
 }
 
+function getProfilInfo(username){
+  	var xhttp = new XMLHttpRequest();
+    xhttp.responseType = 'json';
+  	/*sur reception de la reponse*/
+  	xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var json = JSON.parse(JSON.stringify(this.response));
+        if (json != null) {
+          document.getElementById("user_pseudo").innerHTML = json['user']['username'];
+          document.getElementById("user_score").innerHTML = json['user']['score'];
+
+      }
+      else{
+        alert("Error fetching profil infos");
+      }
+      }
+    };
+
+  	/*texte a envoyer*/
+  	var params = "?username=" + username;
+
+  	/*envoi asynchrone au servlet*/
+    var url = "../../server/users" + params;
+
+  	xhttp.open("GET", url , true);
+  	xhttp.send();
+    //console.log(xhttp);
+
+}
+
+function leaderboards_get(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.responseType= 'json';
+  var user_name = "user_name_";
+  var user_score = "user_score_";
+
+  /*sur reception de la reponse*/
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var json = JSON.parse(JSON.stringify(this.response));
+        if (json != null) {
+          for(i=0;i<10;i++){
+            var user_name_formated = user_name + i;
+            var user_score_formated = user_score + i;
+            document.getElementById(user_name_formated).innerHTML = json['top10'][i]['username'];
+            document.getElementById(user_score_formated).innerHTML = json['top10'][i]['score'];
+          }
+        }
+    }
+  };
+
+  /*envoi asynchrone au servlet*/
+  xhttp.open("GET", "../../server/users", true);
+  xhttp.send();
+}
+
 function checkIfOnlineMenu(){
   var xhttp = new XMLHttpRequest();
   xhttp.responseType= 'json';
@@ -101,6 +157,34 @@ function checkIfOnlineSolo(){
   xhttp.send();
 }
 
+function checkIfOnlineProfil(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.responseType= 'json';
+
+  /*sur reception de la reponse*/
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var json = JSON.parse(JSON.stringify(this.response));
+        if (json != null) {
+            if(json['session']!=null){
+              getProfilInfo(json['session']['username']);
+              document.getElementById("connexionMenu").hidden = true;
+              document.getElementById("inscriptionMenu").hidden = true;
+              document.getElementById("logoutMenu").hidden = false;
+              document.getElementById("profilMenu").style.display = "inline-block";
+            }
+            else{
+              document.location.href = "index.html";
+            }
+        }
+    }
+  };
+
+  /*envoi asynchrone au servlet*/
+  xhttp.open("GET", "../../server/sessions", true);
+  xhttp.send();
+}
+
 function checkIfOnline() {
   checkIfOnlineMenu();
 }
@@ -130,8 +214,6 @@ function make_questions(json) {
     var pid1 = "question_1_pid";
     var pid2 = "question_2_pid";
     var content = "content";
-
-    console.log(json);
 
     document.getElementById(title1).innerHTML = json['products'][0]['name'];
     document.getElementById(title2).innerHTML = json['products'][1]['name'];
@@ -166,7 +248,7 @@ function answers_post(numero_reponse) {
     };
 
     /*texte a envoyer*/
-    var params = "answer=" + document.getElementById(a).innerHTML;
+    var params = "answer=" + escapeHtml(document.getElementById(a).innerHTML);
 
     /*envoi asynchrone au servlet*/
     xhttp.open("POST", "../../server/answers", true);
@@ -191,7 +273,6 @@ function questions_get() {
             var json = JSON.parse(JSON.stringify(this.response));
             if (json != null) {
                 make_questions(json);
-                //console.log(Object.values(this.response));
             } else {
                 questions_get();
             }
@@ -269,9 +350,9 @@ function users_post() {
 
     /*texte a envoyer*/
     var params =
-        "username=" + document.getElementById(u).value +
-        "&password=" + document.getElementById(p).value +
-        "&confirmation=" + document.getElementById(c).value;
+        "username=" + escapeHtml(document.getElementById(u).value) +
+        "&password=" + escapeHtml(document.getElementById(p).value) +
+        "&confirmation=" + escapeHtml(document.getElementById(c).value);
 
     /*envoi asynchrone au servlet*/
     xhttp.open("POST", "../../server/users", true);
@@ -302,13 +383,20 @@ function sessions_post() {
                 }
             }
             checkIfOnline();
+            var url = window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1);
+            if(url == "solo.html"){
+              checkIfOnlineSolo();
+            }
+            if(url == "game.html"){
+              checkIfOnlineGame();
+            }
         }
     };
 
     /*texte a envoyer*/
     var params =
-        "username=" + document.getElementById(u).value +
-        "&password=" + document.getElementById(p).value;
+        "username=" + escapeHtml(document.getElementById(u).value) +
+        "&password=" + escapeHtml(document.getElementById(p).value);
 
     /*envoi asynchrone au servlet*/
     xhttp.open("POST", "../../server/sessions", true);
@@ -340,3 +428,15 @@ $(document).ready(function() {
 function makeAlert(){
   alert("Not yet implemented !");
 }
+
+
+
+function escapeHtml(str) {
+  var unsafe = str;
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+ }
