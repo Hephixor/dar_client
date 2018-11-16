@@ -13,7 +13,7 @@
             <center>
               <div id="sessions_post_resp_id" class="alert alert-danger" hidden="true">
                 <strong>Error</strong>
-                <div id="explanations1"></div>
+                <div id="explanations1" style="padding-top:10px;font-size:12px;"></div>
               </div>
               <button class="buttonFancy" onclick="sessions_post()" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    Connexion    </span></button>
             </center>
@@ -38,11 +38,17 @@
           </div><!-- /.title-area -->
           <center>
             <div class="formulaire" style="margin-top:50px;">
-            <p class="field"><input type="text" id="users_post_username_id" placeholder="username" /><i class="icon-user icon-large"></i></p>
-            <p class="field"><input type="password" id="users_post_password_id" placeholder="password" /><i class="icon-lock icon-large"></i></p>
-            <p class="field"><input type="password" id="users_post_confirmation_id" placeholder="confirm password" /><i class="icon-lock icon-large"></i></p>
+            <p class="field"><input type="text" id="users_post_username_id" placeholder="Pseudonyme*" /><i class="icon-user icon-large"></i></p>
+            <p class="field"><input type="text" id="users_post_username_name" placeholder="Nom" /><i class="icon-user icon-large"></i></p>
+            <p class="field"><input type="text" id="users_post_username_firstname" placeholder="Prénom" /><i class="icon-user icon-large"></i></p>
+            <p class="field"><input type="text" id="users_post_username_mail" placeholder="Email" /><i class="icon-user icon-large"></i></p>
+            <p class="field"><input type="password" id="users_post_password_id" placeholder="Mot de passe*" /><i class="icon-lock icon-large"></i></p>
+            <p class="field"><input type="password" id="users_post_confirmation_id" placeholder="Confirmation*" /><i class="icon-lock icon-large"></i></p>
+            <div id="users_post_resp_id" class="alert alert-danger" hidden="true">
+              <strong>Error</strong>
+              <div id="explanations2" style="padding-top:10px;font-size:12px;"></div>
+            </div>
             <button class="buttonFancy" value="Sign Up" onclick="users_post()"  style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" ><span>    S'inscrire    </span></button>
-            <p id="users_post_resp_id"></p>
           </div>
 
           </center>

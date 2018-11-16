@@ -38,9 +38,15 @@
 
   <script src="include/functions.js"></script>
   <script src="include/sha.js"></script>
+  <script>
+    function start(){
+      checkIfOnlineGame();
+      questions_get();
+    }
+    </script>
 </head>
 
-<body class="header-fixed-top" onload="questions_get()">
+<body class="header-fixed-top" onload="start()">
   <div id="header"></div>
 
 
@@ -56,6 +62,14 @@
     </div><!-- /.row -->
   </div><!-- /.post-area -->
 </section><!-- /#latest-post -->
+
+<center>
+<div id="loaderAnim">
+  <br/><br/><br/><br/>
+<img src="images/loading.gif" style="height: 5%;width: 5%;
+    top: 50%;"/>
+</div>
+</center>
 
 <section id="pricing">
   <div id="content" class="container" style="width:90%" hidden="true">
@@ -88,8 +102,6 @@
       </div>
     </section>
     <br/>
-
-    <p id="answers_post_resp_id"></p>
 
     <div id="footer"></div>
     </body>
