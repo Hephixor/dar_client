@@ -23,8 +23,18 @@ function getProfilInfo(username){
       if (this.readyState == 4 && this.status == 200) {
         var json = JSON.parse(JSON.stringify(this.response));
         if (json != null) {
+          console.log(Object.values(json));
           document.getElementById("user_pseudo").innerHTML = json['user']['username'];
           document.getElementById("user_score").innerHTML = json['user']['score'];
+          if(json['user']['name']!=undefined){
+            document.getElementById("user_name").innerHTML = "Nom : " + json['user']['name'];
+          }
+          if(json['user']['firstname']!=undefined){
+            document.getElementById("user_firstname").innerHTML = "Prénom : " + json['user']['firstname'];
+          }
+          if(json['user']['email']!=undefined){
+            document.getElementById("user_email").innerHTML = "Email : " + json['user']['email'];
+          }
 
       }
       else{
@@ -147,6 +157,56 @@ function checkIfOnlineSolo(){
               document.getElementById("errorMsg").hidden = false;
               document.getElementById("playButton").hidden = true;
               document.getElementById("profilMenu").style.display = "none";
+            }
+        }
+    }
+  };
+
+  /*envoi asynchrone au servlet*/
+  xhttp.open("GET", "../../server/sessions", true);
+  xhttp.send();
+}
+
+function goToMember(username){
+  localStorage.setItem("memberName",username);
+  window.location.href="membre.html";
+}
+
+function search_get(){
+  document.getElementById("searchTerms").innerHTML = localStorage.getItem("search");
+}
+
+
+function search(){
+  var search = document.getElementById("search").value;
+  localStorage.setItem("search",search);
+  window.location.href="search.html";
+}
+
+function checkIfOnlineMember(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.responseType= 'json';
+
+  /*sur reception de la reponse*/
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var json = JSON.parse(JSON.stringify(this.response));
+        if (json != null) {
+            if(json['session']!=null){
+              if(localStorage.getItem("memberName")!=undefined){
+                getProfilInfo(localStorage.getItem("memberName"));
+              }
+              else{
+                window.location.href="index.html";
+              }
+
+              document.getElementById("connexionMenu").hidden = true;
+              document.getElementById("inscriptionMenu").hidden = true;
+              document.getElementById("logoutMenu").hidden = false;
+              document.getElementById("profilMenu").style.display = "inline-block";
+            }
+            else{
+              document.location.href = "index.html";
             }
         }
     }
@@ -326,6 +386,9 @@ function test() {
 
 function users_post() {
     var u = "users_post_username_id";
+    var n = "users_post_username_name";
+    var f = "users_post_username_firstname";
+    var m = "users_post_username_mail";
     var p = "users_post_password_id";
     var c = "users_post_confirmation_id";
     var r = "users_post_resp_id";
@@ -352,7 +415,10 @@ function users_post() {
     var params =
         "username=" + escapeHtml(document.getElementById(u).value) +
         "&password=" + escapeHtml(document.getElementById(p).value) +
-        "&confirmation=" + escapeHtml(document.getElementById(c).value);
+        "&confirmation=" + escapeHtml(document.getElementById(c).value) +
+        "&name=" + escapeHtml(document.getElementById(n).value) +
+        "&firstname=" + escapeHtml(document.getElementById(f).value) +
+        "&email=" + escapeHtml(document.getElementById(m).value);
 
     /*envoi asynchrone au servlet*/
     xhttp.open("POST", "../../server/users", true);

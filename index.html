@@ -38,16 +38,21 @@
 
   <script src="include/functions.js"></script>
   <script src="include/sha.js"></script>
+<script>
+function start(){
+  checkIfOnline();
+}
+  </script>
 </head>
 
-<body class="header-fixed-top" onload="checkIfOnline()">
+<body class="header-fixed-top" onload="start()">
   <div id="header"></div>
   <section id="about" class="about">
     <div class="container">
       <div class="about-area">
         <div class="title-area text-center">
           <h2 class="about-title">DAR Project - Le juste prix</h2>
-          <p class="title-description">Version 1.2.1 (build 14112018a) hotfix v0.23</p>
+          <p class="title-description">Version 1.2.4 (build 14112018a) hotfix v0.23</p>
         </div><!-- /.title-area -->
         <div class="about-items">
           <div class="col-sm-4">
@@ -73,7 +78,7 @@
                 <p class="item-description">
                   Comme ça on s'amuse tous ensemble
                 </p><br/><br/>
-                <a href="#popup-article1" class="card__link btn">
+                <a href="#" onclick="makeAlert()" class="card__link btn">
                   <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
                   Multijouer
                 </a>
@@ -88,9 +93,9 @@
                 <p class="item-description">
                   Savoir si tu est un nul ou un bon.
                 </p><br/><br/>
-                <a href="" class="card__link btn">
+                <a href="leaderboards.html" class="card__link btn">
                   <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
-                  Suis-je nul?!
+                  Suis-je le plus fort?!
                 </a>
               </div><!-- /.item -->
             </div>

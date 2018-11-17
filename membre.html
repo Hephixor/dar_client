@@ -38,19 +38,24 @@
 
   <script src="include/functions.js"></script>
   <script src="include/sha.js"></script>
+  <script>
+  function start(){
+    checkIfOnlineMember();
+  }
+  </script>
 </head>
 
-<body class="header-fixed-top" onload="checkIfOnline()">
+<body class="header-fixed-top" onload="start()">
   <div id="header"></div>
 
 <section class="about">
   <div class="container">
     <div class="about-area">
       <div class="title-area text-center">
-        <h2 class="about-title">pseudo</h2>
+        <h2 class="about-title" id="user_pseudo">pseudo</h2>
         <p class="title-description">
           <br/>
-          <button class="buttonFancy" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;">
+          <button class="buttonFancy" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" onclick="makeAlert()">
             <span>    AJOUTER    </span>
           </button>
         </p>
@@ -59,50 +64,37 @@
         <div class="row" style="margin-left:5px; margin-right:5px;">
           <div class="col-sm-4">
             <div class="item">
-              <div id="picture">
-                <center><img src="images/members/unknown_user_tr.png"/></center>
-              </div>
+              <center><img style="max-width:25%" src="images/members/unknown_user_tr.png"/></center>
+          <div id="uploadPicture">
+            <center><h2 class="about-title" style="border-top:0px; margin-top:-10px;"> :( </h2></center><br/><br/>
+            <center><h4 class="sub-title"> Pas encore d'image de profil ! </h4></center><br/>
+          </div>
             </div><!-- /.item -->
           </div>
           <div class="col-sm-4">
             <div class="item">
               <div class="item-top">
-                <h3 class="item-title"></h3>
-                <h4 class="sub-title">Informations</h4>
+                <h4 class="sub-title">Score</h4>
               </div><!-- /.item-top -->
-              <p class="item-description" style="margin-top:-25px">
-                <p>Prenom |".$prenom."<br />Nom |".$nom."<br />Mail |".$mail."
-                  <br />Date inscription | 2017-25-17<br />Gonades | Mâle</p>
-                </div><!-- /.item -->
+              <div class="title-are text-center">
+                <p style="margin-top: 30px;color: whitesmoke;font-size: 4vw;font-weight: bold;" id="user_score"></p>
               </div>
+            </div><!-- /.item -->
+          </div>
               <div class="col-sm-4">
                 <div class="item">
                   <div class="item-top">
                     <h4 class="sub-title">Liste de quizzs</h4>
                   </div><!-- /.item-top -->
                   <p class="item-description">
-
+                  </p>
                   </div><!-- /.about-items -->
                 </div>
-                <div class="row" style="margin-left:5px; margin-right:5px;">
-                  <div class="col-sm-4">
-                    <div class="item">
-                      <div class="item-top">
-                        <h4 class="sub-title">Score</h4>
-                      </div><!-- /.item-top -->
-                      <p class="item-description">
 
-                      </p>
-
-                    </div><!-- /.item -->
-                  </div>
-                </div>
               </div><!-- /.about-items -->
             </div><!-- /.about-area -->
           </div><!-- /.container -->
         </section><!-- /#about -->
-
-
           <div id="footer"></div>
           </body>
           </html>
