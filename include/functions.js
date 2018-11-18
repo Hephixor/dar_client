@@ -262,6 +262,43 @@ function friends_get(username){
           xhttp.send();
 }
 
+function gotToMemberLeaderboard(num){
+  switch(num) {
+    case 0:
+    goToMember(document.getElementById("user_name_0").innerHTML);
+    break;
+    case 1:
+    goToMember(document.getElementById("user_name_1").innerHTML);
+    break;
+    case 2:
+    goToMember(document.getElementById("user_name_2").innerHTML);
+    break;
+    case 3:
+    goToMember(document.getElementById("user_name_3").innerHTML);
+    break;
+    case 4:
+    goToMember(document.getElementById("user_name_4").innerHTML);
+    break;
+    case 5:
+    goToMember(document.getElementById("user_name_5").innerHTML);
+    break;
+    case 6:
+    goToMember(document.getElementById("user_name_6").innerHTML);
+    break;
+    case 7:
+    goToMember(document.getElementById("user_name_7").innerHTML);
+    break;
+    case 8:
+    goToMember(document.getElementById("user_name_8").innerHTML);
+    break;
+    case 9:
+    goToMember(document.getElementById("user_name_9").innerHTML);
+    break;
+    default:
+    break;
+  }
+}
+
 function deleteFriend(){
   var xhttp = new XMLHttpRequest();
   xhttp.responseType= 'json';
