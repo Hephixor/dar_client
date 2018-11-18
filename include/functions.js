@@ -15,7 +15,8 @@ function display(id) {
     }
 }
 
-function getProfilInfo(username){
+
+function getOwnProfilInfo(){
   	var xhttp = new XMLHttpRequest();
     xhttp.responseType = 'json';
   	/*sur reception de la reponse*/
@@ -23,7 +24,6 @@ function getProfilInfo(username){
       if (this.readyState == 4 && this.status == 200) {
         var json = JSON.parse(JSON.stringify(this.response));
         if (json != null) {
-          console.log(Object.values(json));
           document.getElementById("user_pseudo").innerHTML = json['user']['username'];
           document.getElementById("user_score").innerHTML = json['user']['score'];
           if(json['user']['name']!=undefined){
@@ -44,6 +44,34 @@ function getProfilInfo(username){
     };
 
   	/*texte a envoyer*/
+  	var params = "?myself=true";
+
+  	/*envoi asynchrone au servlet*/
+    var url = "../../server/users" + params;
+
+  	xhttp.open("GET", url , true);
+  	xhttp.send();
+
+}
+
+function getProfilInfo(username){
+  	var xhttp = new XMLHttpRequest();
+    xhttp.responseType = 'json';
+  	/*sur reception de la reponse*/
+  	xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var json = JSON.parse(JSON.stringify(this.response));
+        if (json != null) {
+          document.getElementById("user_pseudo").innerHTML = json['users'][0]['username'];
+          document.getElementById("user_score").innerHTML = json['users'][0]['score'];
+      }
+      else{
+        alert("Error fetching profil infos");
+      }
+      }
+    };
+
+  	/*texte a envoyer*/
   	var params = "?username=" + username;
 
   	/*envoi asynchrone au servlet*/
@@ -51,9 +79,10 @@ function getProfilInfo(username){
 
   	xhttp.open("GET", url , true);
   	xhttp.send();
-    //console.log(xhttp);
 
 }
+
+
 
 function leaderboards_get(){
   var xhttp = new XMLHttpRequest();
@@ -69,8 +98,8 @@ function leaderboards_get(){
           for(i=0;i<10;i++){
             var user_name_formated = user_name + i;
             var user_score_formated = user_score + i;
-            document.getElementById(user_name_formated).innerHTML = json['top10'][i]['username'];
-            document.getElementById(user_score_formated).innerHTML = json['top10'][i]['score'];
+            document.getElementById(user_name_formated).innerHTML = json['users'][i]['username'];
+            document.getElementById(user_score_formated).innerHTML = json['users'][i]['score'];
           }
         }
     }
@@ -93,12 +122,14 @@ function checkIfOnlineMenu(){
             if(json['session']!=null){
               document.getElementById("connexionMenu").hidden = true;
               document.getElementById("inscriptionMenu").hidden = true;
+              document.getElementById("friendsMenu").hidden = false;
               document.getElementById("logoutMenu").hidden = false;
               document.getElementById("profilMenu").style.display = "inline-block";
             }
             else{
               document.getElementById("connexionMenu").hidden = false;
               document.getElementById("inscriptionMenu").hidden = false;
+              document.getElementById("friendsMenu").hidden = true;
               document.getElementById("logoutMenu").hidden = true;
               document.getElementById("profilMenu").style.display = "none";
             }
@@ -145,6 +176,7 @@ function checkIfOnlineSolo(){
             if(json['session']!=null){
               document.getElementById("connexionMenu").hidden = true;
               document.getElementById("inscriptionMenu").hidden = true;
+              document.getElementById("friendsMenu").hidden = false;
               document.getElementById("logoutMenu").hidden = false;
               document.getElementById("playButton").hidden = false;
               document.getElementById("errorMsg").hidden = true;
@@ -153,6 +185,7 @@ function checkIfOnlineSolo(){
             else{
               document.getElementById("connexionMenu").hidden = false;
               document.getElementById("inscriptionMenu").hidden = false;
+              document.getElementById("friendsMenu").hidden = true;
               document.getElementById("logoutMenu").hidden = true;
               document.getElementById("errorMsg").hidden = false;
               document.getElementById("playButton").hidden = true;
@@ -172,8 +205,173 @@ function goToMember(username){
   window.location.href="membre.html";
 }
 
+
+function friends_get(username){
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.responseType= 'json';
+  var usern = new Array();
+  /*sur reception de la reponse*/
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var json = JSON.parse(JSON.stringify(this.response));
+        if (json != null) {
+          if(json['users'][0]['friends'].length==0){
+            document.getElementById("noFriend").hidden=false;
+          }
+            if(json['users'][0]['friends']!=null){
+              for(i=0;i<json['users'][0]['friends'].length;i++){
+                var ul =document.getElementById("resultList");
+                var li = document.createElement('li');
+                var time = document.createElement('time');
+                var img = document.createElement('img');
+                var div = document.createElement('div');
+                var h2 = document.createElement('h2');
+
+                img.src = "images/members/unknown-user.png";
+                img.style = "max-height:100%";
+                h2.className="info";
+                h2.style="font-size:3vw;";
+
+                usern[i] = json['users'][0]['friends'][i];
+                h2.innerHTML=json['users'][0]['friends'][i];
+                li.setAttribute("id",i);
+                li.addEventListener("click", function(event) {
+                  goToMember(usern[this.id]);
+                  event.preventDefault();
+                });
+
+
+                time.appendChild(img);
+                div.appendChild(h2);
+                div.style="transform: translateY(+50%);";
+
+                li.appendChild(time);
+                li.appendChild(div);
+                ul.appendChild(li);
+
+                }
+              }
+          }
+      }
+  };
+
+          var params = "?username=" + username;
+          /*envoi asynchrone au servlet*/
+          xhttp.open("GET", "../../server/users" + params, true);;
+          xhttp.send();
+}
+
+function deleteFriend(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.responseType= 'json';
+
+  /*sur reception de la reponse*/
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var json = JSON.parse(JSON.stringify(this.response));
+        if (json != null) {
+                if(json['success']==true){
+                  document.getElementById("addButton").hidden=false;
+                  document.getElementById("deleteButton").hidden=true;
+                }
+                else{
+                  alert("Error while adding friend");
+                }
+              }
+          }
+  };
+
+  /*texte a envoyer*/
+  var params = "?username=" + document.getElementById("user_pseudo").innerHTML;
+  /*envoi asynchrone au servlet*/
+  xhttp.open("DELETE", "../../server/friends"+params, true);
+
+  xhttp.send();
+}
+
+function addFriend(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.responseType= 'json';
+
+  /*sur reception de la reponse*/
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var json = JSON.parse(JSON.stringify(this.response));
+        if (json != null) {
+                if(json['success']==true){
+                  document.getElementById("addButton").hidden=true;
+                  document.getElementById("deleteButton").hidden=false;
+                }
+                else{
+                  alert("Error while adding friend");
+                }
+              }
+          }
+  };
+
+
+  /*texte a envoyer*/
+  var params = "username=" + document.getElementById("user_pseudo").innerHTML;
+
+  /*envoi asynchrone au servlet*/
+  xhttp.open("POST", "../../server/friends", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+}
+
 function search_get(){
-  document.getElementById("searchTerms").innerHTML = localStorage.getItem("search");
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.responseType= 'json';
+  var usern = new Array();
+  /*sur reception de la reponse*/
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var json = JSON.parse(JSON.stringify(this.response));
+        if (json != null) {
+            if(json['users']!=null){
+              for(i=0;i<json['users'].length;i++){
+                var ul =document.getElementById("resultList");
+                var li = document.createElement('li');
+                var time = document.createElement('time');
+                var img = document.createElement('img');
+                var div = document.createElement('div');
+                var h2 = document.createElement('h2');
+
+                img.src = "images/members/unknown-user.png";
+                img.style = "max-height:100%";
+                h2.className="info";
+                h2.style="font-size:3vw;";
+
+                usern[i] = json['users'][i]['username'];
+                h2.innerHTML=json['users'][i]['username'];
+                li.setAttribute("id",i);
+                li.addEventListener("click", function(event) {
+                  goToMember(usern[this.id]);
+                  event.preventDefault();
+                });
+
+                time.appendChild(img);
+                div.appendChild(h2);
+                div.style="transform: translateY(+50%);";
+
+                li.appendChild(time);
+                li.appendChild(div);
+                ul.appendChild(li);
+
+                }
+              }
+          }
+      }
+  };
+
+
+          var params = "?username=" + escapeHtml(localStorage.getItem("search"));
+
+          /*envoi asynchrone au servlet*/
+          xhttp.open("GET", "../../server/users" + params, true);;
+          xhttp.send();
 }
 
 
@@ -182,6 +380,43 @@ function search(){
   localStorage.setItem("search",search);
   window.location.href="search.html";
 }
+
+function checkIfOnlineFriends(){
+  checkIfOnline();
+  friends_get(localStorage.getItem("username"));
+}
+
+function checkIfOnlineSearch(){
+  checkIfOnline();
+  search_get();
+}
+
+function checkIfFriends(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.responseType= 'json';
+
+  /*sur reception de la reponse*/
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var json = JSON.parse(JSON.stringify(this.response));
+        if (json != null) {
+
+
+          for(i=0;i<json['friends'].length;i++){
+            if(json['friends'][i]==localStorage.getItem("memberName")){
+              document.getElementById("addButton").hidden=true;
+              document.getElementById("deleteButton").hidden=false;
+            }
+          }
+        }
+        }
+  };
+  var params = "?username=" + localStorage.getItem("username");
+  /*envoi asynchrone au servlet*/
+  xhttp.open("GET", "../../server/friends" + params, true);
+  xhttp.send();
+}
+
 
 function checkIfOnlineMember(){
   var xhttp = new XMLHttpRequest();
@@ -194,16 +429,17 @@ function checkIfOnlineMember(){
         if (json != null) {
             if(json['session']!=null){
               if(localStorage.getItem("memberName")!=undefined){
+                checkIfFriends();
                 getProfilInfo(localStorage.getItem("memberName"));
+                document.getElementById("connexionMenu").hidden = true;
+                document.getElementById("inscriptionMenu").hidden = true;
+                document.getElementById("friendsMenu").hidden = false;
+                document.getElementById("logoutMenu").hidden = false;
+                document.getElementById("profilMenu").style.display = "inline-block";
               }
               else{
                 window.location.href="index.html";
               }
-
-              document.getElementById("connexionMenu").hidden = true;
-              document.getElementById("inscriptionMenu").hidden = true;
-              document.getElementById("logoutMenu").hidden = false;
-              document.getElementById("profilMenu").style.display = "inline-block";
             }
             else{
               document.location.href = "index.html";
@@ -227,7 +463,7 @@ function checkIfOnlineProfil(){
         var json = JSON.parse(JSON.stringify(this.response));
         if (json != null) {
             if(json['session']!=null){
-              getProfilInfo(json['session']['username']);
+              getOwnProfilInfo();
               document.getElementById("connexionMenu").hidden = true;
               document.getElementById("inscriptionMenu").hidden = true;
               document.getElementById("logoutMenu").hidden = false;
@@ -352,7 +588,7 @@ function sessions_delete() {
     /*sur reception de la reponse*/
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            //document.getElementById(r).innerHTML = this.responseText;
+            localStorage.setItem("username",undefined);
             document.location.href = "index.html";
         }
     };
@@ -414,8 +650,8 @@ function users_post() {
     /*texte a envoyer*/
     var params =
         "username=" + escapeHtml(document.getElementById(u).value) +
-        "&password=" + escapeHtml(document.getElementById(p).value) +
-        "&confirmation=" + escapeHtml(document.getElementById(c).value) +
+        "&password=" + str_sha256(document.getElementById(p).value) +
+        "&confirmation=" + str_sha256(document.getElementById(c).value) +
         "&name=" + escapeHtml(document.getElementById(n).value) +
         "&firstname=" + escapeHtml(document.getElementById(f).value) +
         "&email=" + escapeHtml(document.getElementById(m).value);
@@ -424,6 +660,27 @@ function users_post() {
     xhttp.open("POST", "../../server/users", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(params);
+}
+
+function saveUsernameSession(){
+      var xhttp1 = new XMLHttpRequest();
+      xhttp1.responseType= 'json';
+
+    /*sur reception de la reponse*/
+    xhttp1.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    var json = JSON.parse(JSON.stringify(this.response));
+    if (json != null) {
+    if(json['session']!=null){
+      localStorage.setItem("username",json['session']['username']);
+    }
+    }
+    }
+    };
+
+/*envoi asynchrone au servlet*/
+xhttp1.open("GET", "../../server/sessions", true);
+xhttp1.send();en = false;
 }
 
 function sessions_post() {
@@ -440,6 +697,7 @@ function sessions_post() {
             var json = JSON.parse(JSON.stringify(this.response));
             if (json != null) {
                 if (json['success'] == true) {
+                    saveUsernameSession();
                     document.getElementById('popup2close').click();
                     document.getElementById('sessions_post_resp_id').hidden = true;
                 }
@@ -462,7 +720,7 @@ function sessions_post() {
     /*texte a envoyer*/
     var params =
         "username=" + escapeHtml(document.getElementById(u).value) +
-        "&password=" + escapeHtml(document.getElementById(p).value);
+        "&password=" + str_sha256(document.getElementById(p).value);
 
     /*envoi asynchrone au servlet*/
     xhttp.open("POST", "../../server/sessions", true);

@@ -38,9 +38,14 @@
 
   <script src="include/functions.js"></script>
   <script src="include/sha.js"></script>
+  <script>
+  function start(){
+    checkIfOnlineFriends();
+  }
+  </script>
 </head>
 
-<body class="header-fixed-top" onload="checkIfOnlineSearch()">
+<body class="header-fixed-top" onload="start()">
   <div id="header"></div>
 
 
@@ -51,23 +56,22 @@
       <div class="container"  style="width:80%">
         <div class="post-area" style="width:100%">
           <div class="post-area-top text-center">
-            <h2 class="post-area-title">Résultats de recherche</h2>
+            <h2 class="post-area-title">Vos amis<h2>
             <p class="title-description" style="color:white" id="searchTerms"></p>
 
             <div class="container">
               <div class="row">
               <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+                <h2 id="noFriend" hidden=true>Vous n'avez pas (encore) d'amis</h2>
                 <ul id="resultList" class="event-list">
                 </ul>
               </div>
-          </center>
           </div>
       </div>
           </div><!-- /.post-area-top -->
         </div>
           </div>
     </section><!-- /#latest-post -->
-
 </div>
 
 

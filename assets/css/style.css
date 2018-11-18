@@ -2467,6 +2467,138 @@ font-weight: initial;
   top: 50%;
 }
 
+
+
+
+.formulaire buttonError {
+    /* taille et position*/
+    width: 100%;
+    height: 100%;
+    margin-top: -1px;
+
+    /* Icon styles */
+    font-size: 1.4em;
+    line-height: 0.5;
+    color: white;
+
+    /* Styles */
+    border: none; /* Remove the default border */
+    border-radius: inherit;
+    background: #FF4136;
+    background: -moz-linear-gradient(#52cfeb, #42A2BC);
+    background: -ms-linear-gradient(#52cfeb, #42A2BC);
+    background: -o-linear-gradient(#52cfeb, #42A2BC);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#52cfeb), to(#42A2BC));
+    background: -webkit-linear-gradient(#52cfeb, #42A2BC);
+    background: linear-gradient(#52cfeb, #42A2BC);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        0 1px 2px rgba(0,0,0,0.35),
+        inset 0 3px 2px rgba(255,255,255,0.2),
+        inset 0 -3px 2px rgba(0,0,0,0.1);
+
+    cursor: pointer;
+}
+
+.formulaire buttonError:hover,
+.formulaire buttonError[type=submit]:focus {
+    background: #FF4136;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.formulaire buttonError:active {
+    background: #FF4136;
+    box-shadow:
+        inset 0 0 5px rgba(0,0,0,0.3),
+        inset 0 3px 4px rgba(0,0,0,0.3);
+}
+
+.buttonError{
+  font-weight: initial;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #0C5;
+
+  font-size: 24px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+
+ margin: 5em auto;
+
+  /*  position: absolute;
+  top:0; right:0; bottom:0; left:0; */
+
+  padding: 20px 0;
+  width: 220px;
+  height:30px;
+
+font-weight: initial;
+&nbsp;background: #FF4136;
+  border: 1px solid #FF4136;
+  color: #FFF;
+  overflow: hidden;
+
+  transition: all 0.5s;
+}
+
+.buttonError:hover, .buttonError:active
+{
+font-weight: initial;
+&nbsp;text-decoration: none;
+  color: #FF4136;
+  border-color: #FF4136;
+  background: #FFF;
+}
+
+.buttonError span
+{
+  display: inline-block;
+  position: relative;
+  padding-right: 0;
+  width:220px;
+  transition: padding-right 0.5s;
+}
+
+.buttonError span:after
+{
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: -18px;
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  margin-top: -9px;
+
+  background: rgba(0, 0, 0, 0);
+  border: 3px solid #FFF;
+  border-top: none;
+  border-right: none;
+
+  transition: opacity 0.5s, top 0.5s, right 0.5s;
+  transform: rotate(-45deg);
+}
+
+.buttonError:hover span, .buttonError:active span
+{
+  padding-right: 30px;
+}
+
+.buttonError:hover span:after, .buttonError:active span:after
+{
+font-weight: initial;
+  transition: opacity 0.5s, top 0.5s, right 0.0s;
+  opacity: 1;
+  border-color: #FF4136;
+  right: 20%;
+  top: 50%;
+}
+
 .artistList div {
   /*width: 500px;*/
 }

@@ -52,11 +52,14 @@
   <div class="container">
     <div class="about-area">
       <div class="title-area text-center">
-        <h2 class="about-title" id="user_pseudo">pseudo</h2>
+        <h2 class="about-title" id="user_pseudo"> - </h2>
         <p class="title-description">
           <br/>
-          <button class="buttonFancy" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" onclick="makeAlert()">
+          <button id="addButton" class="buttonFancy" style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" onclick="addFriend()">
             <span>    AJOUTER    </span>
+          </button>
+          <button id="deleteButton" class="buttonError" hidden=true style="padding: 0;margin: 0;padding-top: 3px;border-radius:3px; font-size:12px;" onclick="deleteFriend()">
+            <span>    SUPPRIMER    </span>
           </button>
         </p>
       </div><!-- /.title-area -->
