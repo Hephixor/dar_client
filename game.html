@@ -47,11 +47,26 @@
 </head>
 
 <body class="header-fixed-top" onload="start()">
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"><!-- <img src="images/logo2.jpg" alt="Site Logo"> --></div>
+    <div class="loader-section section-right"></div>
+  </div>
   <div id="header"></div>
   <center><h3 class="comment-title" id="score" style="padding-top:10px;">SCORE : 0</h3></center>
 
+  <div class="page-alerts" style="min-height:4vw">
+      <div class="alert alert-danger page-alert" id="alert-4">
+          <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <center><strong>Faux !</strong></center>
+      </div>
+      <div class="alert alert-success page-alert" id="alert-5">
+          <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <center><strong>Correct !</strong></center>
+      </div>
+  </div>
 
-<section id="latest-post" class="latest-post" style="padding-top: 40px;">
+<section id="latest-post" class="latest-post">
   <div class="container"  style="width:100%">
     <div class="post-area" style="width:100%">
       <div class="post-area-top text-center">
@@ -69,6 +84,12 @@
     top: 50%;"/>
 </div>
 </center>
+
+
+
+<div class="col-md-2"><button data-toggle="page-alert" data-delay="3000" data-toggle-id="4" class="btn btn-info btn-block" style="display:none" id="respFalse"></button></div>
+<div class="col-md-2"><button data-toggle="page-alert" data-delay="3000" data-toggle-id="5" class="btn btn-info btn-block" style="display:none" id="respTrue"></button></div>
+
 
 <section id="pricing">
   <div id="content" class="container" style="width:90%" hidden="true">
